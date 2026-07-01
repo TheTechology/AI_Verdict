@@ -48,8 +48,8 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card border-b shadow-[0_1px_0_0_rgba(250,250,247,0.06)]" : "bg-transparent border-b border-transparent"
+      className={`sticky top-0 z-50 bg-ink-900 border-b border-ink-800 transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_4px_20px_-4px_rgba(0,0,0,0.5)]" : ""
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -109,7 +109,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="sm:hidden glass-card border-t border-ink-800 overflow-hidden"
+            className="sm:hidden bg-ink-900 border-t border-ink-800 overflow-hidden"
           >
             <nav className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
               {NAV_LINKS.map((link) => {
