@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ScrollTriggerFix } from "@/components/ScrollTriggerFix";
 import "../globals.css";
 
 const serif = Merriweather({
@@ -83,6 +84,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${serif.variable} ${sans.variable}`}>
       <body className="font-sans min-h-screen flex flex-col bg-[#0b0c0a] text-ink-50 antialiased">
         <NextIntlClientProvider>
+          <ScrollTriggerFix />
           <SiteHeader />
           <div className="flex-1">{children}</div>
           <SiteFooter />
