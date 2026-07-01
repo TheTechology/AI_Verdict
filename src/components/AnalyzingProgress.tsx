@@ -35,11 +35,7 @@ export function AnalyzingProgress() {
           <div key={step} className="flex items-center gap-3 text-sm">
             <span
               className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-colors ${
-                isDone
-                  ? "bg-verde-500 text-white"
-                  : isActive
-                    ? "bg-ink-600 text-white"
-                    : "bg-ink-100 dark:bg-ink-800 text-ink-400"
+                isDone ? "bg-verde-500 text-ink-900" : isActive ? "bg-verde-700 text-ink-50" : "bg-ink-800 text-ink-500"
               }`}
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -56,15 +52,7 @@ export function AnalyzingProgress() {
                 )}
               </AnimatePresence>
             </span>
-            <span
-              className={
-                isDone || isActive
-                  ? "text-ink-800 dark:text-ink-100 font-medium"
-                  : "text-ink-400 dark:text-ink-500"
-              }
-            >
-              {step}
-            </span>
+            <span className={isDone || isActive ? "text-ink-50 font-medium" : "text-ink-500"}>{step}</span>
           </div>
         );
       })}

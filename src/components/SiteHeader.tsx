@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { ShieldCheck } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
+
+const NAV_LINKS = [
+  { href: "#impact", label: "Impact" },
+  { href: "#piloni", label: "Piloni" },
+  { href: "#educatie", label: "Educație" },
+  { href: "#povestea", label: "Povestea" },
+];
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,33 +23,29 @@ export function SiteHeader() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "glass-card border-b shadow-sm"
-          : "bg-transparent border-b border-transparent"
+        scrolled ? "glass-card border-b" : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-serif font-bold text-ink-800 dark:text-ink-100">
-          <ShieldCheck className="h-6 w-6 text-verde-600 dark:text-verde-400" />
+        <a href="#top" className="flex items-center gap-2 font-serif font-bold text-ink-50">
+          <ShieldCheck className="h-6 w-6 text-verde-400" />
           VERITAS AI
         </a>
 
-        <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-ink-600 dark:text-ink-300">
-          <a href="#piloni" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
-            Piloni de analiză
-          </a>
-          <a href="#povestea" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
-            Povestea
-          </a>
-          <a href="#analiza" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
-            Analizează
-          </a>
-          <a href="/confidentialitate" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
-            Confidențialitate
-          </a>
+        <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-ink-300">
+          {NAV_LINKS.map((link) => (
+            <a key={link.href} href={link.href} className="hover:text-ink-50 transition-colors">
+              {link.label}
+            </a>
+          ))}
         </nav>
 
-        <ThemeToggle />
+        <a
+          href="#analiza"
+          className="inline-flex items-center rounded-full bg-verde-500 hover:bg-verde-400 text-ink-900 text-sm font-semibold px-4 py-2 transition-colors"
+        >
+          Analizează
+        </a>
       </div>
     </header>
   );

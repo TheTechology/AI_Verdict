@@ -2,8 +2,8 @@ import type { Config } from "tailwindcss";
 
 // Paletă derivată din identitatea vizuală grupulverde.ro (verde "wise-green" +
 // negru-aproape + off-white, fără accente albastre) — vezi și nota din README.
+// Site permanent pe temă întunecată — nu există variantă luminoasă.
 const config: Config = {
-  darkMode: "class",
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {

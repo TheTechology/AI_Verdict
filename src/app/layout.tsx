@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Merriweather, Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import "./globals.css";
@@ -17,9 +16,9 @@ const sans = Inter({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const title = "VERITAS AI — Analiză contextuală anti-dezinformare";
+const title = "VERITAS AI — Instrumentul unei generații care nu doar crede, ci verifică";
 const description =
-  "Nu îți spunem ce să crezi. Îți arătăm ce să observi. Un proiect al Asociației Grupul Verde, Adjud.";
+  "13 tineri, o misiune națională: platforma care arată mecanismele dezinformării, nu doar un verdict. Un proiect al Asociației Grupul Verde, Adjud.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -43,13 +42,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ro" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
-      <body className="font-sans min-h-screen flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <SiteHeader />
-          <div className="flex-1">{children}</div>
-          <SiteFooter />
-        </ThemeProvider>
+    <html lang="ro" className={`${serif.variable} ${sans.variable}`}>
+      <body className="font-sans min-h-screen flex flex-col bg-[#0b0c0a] text-ink-50 antialiased">
+        <SiteHeader />
+        <div className="flex-1">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   );
