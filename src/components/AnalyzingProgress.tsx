@@ -38,8 +38,8 @@ export function AnalyzingProgress() {
                 isDone
                   ? "bg-verde-500 text-white"
                   : isActive
-                    ? "bg-petrol-600 text-white"
-                    : "bg-petrol-100 dark:bg-petrol-800 text-petrol-400"
+                    ? "bg-ink-600 text-white"
+                    : "bg-ink-100 dark:bg-ink-800 text-ink-400"
               }`}
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -59,8 +59,8 @@ export function AnalyzingProgress() {
             <span
               className={
                 isDone || isActive
-                  ? "text-petrol-800 dark:text-petrol-100 font-medium"
-                  : "text-petrol-400 dark:text-petrol-500"
+                  ? "text-ink-800 dark:text-ink-100 font-medium"
+                  : "text-ink-400 dark:text-ink-500"
               }
             >
               {step}

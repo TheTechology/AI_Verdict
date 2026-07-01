@@ -50,7 +50,7 @@ export default function Home() {
           <p className="text-xs uppercase tracking-widest text-verde-600 dark:text-verde-400 font-medium">
             Testează platforma
           </p>
-          <h2 className="font-serif text-3xl font-bold mt-2 text-petrol-800 dark:text-petrol-100">
+          <h2 className="font-serif text-3xl font-bold mt-2 text-ink-800 dark:text-ink-100">
             Analizează un text
           </h2>
         </div>

@@ -29,8 +29,8 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
       className="glass-card rounded-2xl p-6 shadow-sm space-y-5"
     >
       <div>
-        <label htmlFor="url" className="block text-sm font-medium text-petrol-700 dark:text-petrol-200 mb-1.5">
-          URL sursă <span className="text-petrol-400 font-normal">(opțional)</span>
+        <label htmlFor="url" className="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-1.5">
+          URL sursă <span className="text-ink-400 font-normal">(opțional)</span>
         </label>
         <input
           id="url"
@@ -38,12 +38,12 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="https://exemplu.ro/articol"
-          className="w-full rounded-xl border border-petrol-200 dark:border-petrol-700 bg-white/70 dark:bg-petrol-900/40 px-3.5 py-2.5 text-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-verde-400 focus:border-transparent"
+          className="w-full rounded-xl border border-ink-200 dark:border-ink-700 bg-white/70 dark:bg-ink-900/40 px-3.5 py-2.5 text-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-verde-400 focus:border-transparent"
         />
       </div>
 
       <div>
-        <label htmlFor="text" className="block text-sm font-medium text-petrol-700 dark:text-petrol-200 mb-1.5">
+        <label htmlFor="text" className="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-1.5">
           Text de analizat
         </label>
         <textarea
@@ -54,9 +54,9 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Lipește aici articolul, postarea sau fragmentul de text pe care vrei să îl analizezi..."
-          className="w-full rounded-xl border border-petrol-200 dark:border-petrol-700 bg-white/70 dark:bg-petrol-900/40 px-3.5 py-2.5 text-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-verde-400 focus:border-transparent"
+          className="w-full rounded-xl border border-ink-200 dark:border-ink-700 bg-white/70 dark:bg-ink-900/40 px-3.5 py-2.5 text-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-verde-400 focus:border-transparent"
         />
-        <p className="text-xs text-petrol-400 mt-1 text-right">{text.length.toLocaleString("ro-RO")} / 20.000</p>
+        <p className="text-xs text-ink-400 mt-1 text-right">{text.length.toLocaleString("ro-RO")} / 20.000</p>
       </div>
 
       <motion.button
@@ -64,7 +64,7 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
         disabled={loading || !text.trim()}
         whileHover={loading || !text.trim() ? {} : { scale: 1.015 }}
         whileTap={loading || !text.trim() ? {} : { scale: 0.985 }}
-        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-petrol-700 to-verde-700 disabled:from-petrol-400 disabled:to-petrol-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium py-3 shadow-glow transition-all"
+        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-ink-700 to-verde-700 disabled:from-ink-400 disabled:to-ink-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium py-3 shadow-glow transition-all"
       >
         {loading ? (
           <>

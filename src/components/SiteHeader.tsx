@@ -23,19 +23,19 @@ export function SiteHeader() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-serif font-bold text-petrol-800 dark:text-petrol-100">
+        <a href="#top" className="flex items-center gap-2 font-serif font-bold text-ink-800 dark:text-ink-100">
           <ShieldCheck className="h-6 w-6 text-verde-600 dark:text-verde-400" />
           VERITAS AI
         </a>
 
-        <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-petrol-600 dark:text-petrol-300">
-          <a href="#piloni" className="hover:text-petrol-800 dark:hover:text-petrol-100 transition-colors">
+        <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-ink-600 dark:text-ink-300">
+          <a href="#piloni" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
             Piloni de analiză
           </a>
-          <a href="#analiza" className="hover:text-petrol-800 dark:hover:text-petrol-100 transition-colors">
+          <a href="#analiza" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
             Analizează
           </a>
-          <a href="/confidentialitate" className="hover:text-petrol-800 dark:hover:text-petrol-100 transition-colors">
+          <a href="/confidentialitate" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
             Confidențialitate
           </a>
         </nav>

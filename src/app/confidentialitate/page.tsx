@@ -2,11 +2,11 @@ export const metadata = { title: "Confidențialitate — VERITAS AI" };
 
 export default function ConfidentialitatePage() {
   return (
-    <main className="max-w-2xl mx-auto px-4 py-10 space-y-4 text-sm text-petrol-700 dark:text-petrol-200">
-      <h1 className="font-serif text-2xl font-bold text-petrol-800 dark:text-petrol-100">
+    <main className="max-w-2xl mx-auto px-4 py-10 space-y-4 text-sm text-ink-700 dark:text-ink-200">
+      <h1 className="font-serif text-2xl font-bold text-ink-800 dark:text-ink-100">
         Confidențialitate — schiță
       </h1>
-      <p className="italic text-petrol-500 dark:text-petrol-400">
+      <p className="italic text-ink-500 dark:text-ink-400">
         Acest text e o schiță pentru echipa de dezvoltare, NU o politică de confidențialitate
         publicabilă. Înainte de lansarea publică, această pagină trebuie revizuită de un jurist
         și adaptată la fluxul real de date al platformei (secțiunea 11 din specificație —
@@ -30,7 +30,7 @@ export default function ConfidentialitatePage() {
         </a>
         .
       </p>
-      <p className="italic text-petrol-500 dark:text-petrol-400">
+      <p className="italic text-ink-500 dark:text-ink-400">
         [TODO echipă: adaugă aici adresa de contact reală pentru întrebări despre date
         (ex. o adresă dedicată @grupulverde.ro), după ce e stabilită.]
       </p>

@@ -92,7 +92,7 @@ export async function analyzeTextStyle(text: string): Promise<TextAnalysisResult
     | undefined;
 
   if (!toolUse) {
-    throw new Error("Claude nu a returnat un rezultat structurat de analiză.");
+    throw new Error("Motorul de analiză nu a returnat un rezultat structurat.");
   }
 
   return toolUse.input as TextAnalysisResult;

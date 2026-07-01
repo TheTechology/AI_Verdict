@@ -29,10 +29,10 @@ export interface AnalysisResultDTO {
 }
 
 const CATEGORY_GRADIENT: Record<ResultCategory, string> = {
-  solid: "from-score-solid to-verde-600",
-  mixed: "from-score-mixed to-orange-400",
-  risky: "from-score-risky to-orange-600",
-  severe: "from-score-severe to-red-700",
+  solid: "from-score-solid to-ink-900",
+  mixed: "from-score-mixed to-ink-900",
+  risky: "from-score-risky to-ink-900",
+  severe: "from-score-severe to-ink-900",
 };
 
 const CATEGORY_BAR: Record<ResultCategory, string> = {
@@ -105,11 +105,11 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
         </motion.p>
       </div>
 
-      <div className="p-4 border-b border-petrol-100 dark:border-petrol-800">
-        <p className="text-sm text-petrol-700 dark:text-petrol-200">{result.summary}</p>
+      <div className="p-4 border-b border-ink-100 dark:border-ink-800">
+        <p className="text-sm text-ink-700 dark:text-ink-200">{result.summary}</p>
       </div>
 
-      <div className="divide-y divide-petrol-100 dark:divide-petrol-800">
+      <div className="divide-y divide-ink-100 dark:divide-ink-800">
         {axes.map((axis, index) => {
           const isOpen = openAxis === axis.key;
           const isUnavailable = axis.value === null;
@@ -123,13 +123,13 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
                 type="button"
                 disabled={isUnavailable}
                 onClick={() => setOpenAxis(isOpen ? null : axis.key)}
-                className="w-full flex items-center gap-4 px-6 py-4 text-left disabled:cursor-not-allowed disabled:opacity-50 hover:bg-petrol-50/60 dark:hover:bg-petrol-800/40 transition-colors"
+                className="w-full flex items-center gap-4 px-6 py-4 text-left disabled:cursor-not-allowed disabled:opacity-50 hover:bg-ink-50/60 dark:hover:bg-ink-800/40 transition-colors"
               >
-                <span className="font-medium text-sm text-petrol-800 dark:text-petrol-100 w-40 shrink-0">
+                <span className="font-medium text-sm text-ink-800 dark:text-ink-100 w-40 shrink-0">
                   {axis.label}
                 </span>
 
-                <span className="flex-1 h-2 rounded-full bg-petrol-100 dark:bg-petrol-800 overflow-hidden">
+                <span className="flex-1 h-2 rounded-full bg-ink-100 dark:bg-ink-800 overflow-hidden">
                   {!isUnavailable && (
                     <motion.span
                       initial={{ width: 0 }}
@@ -140,19 +140,19 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
                   )}
                 </span>
 
-                <span className="text-sm text-petrol-600 dark:text-petrol-300 w-16 text-right tabular-nums">
+                <span className="text-sm text-ink-600 dark:text-ink-300 w-16 text-right tabular-nums">
                   {isUnavailable ? "—" : `${Math.round(axis.value!)}/100`}
                 </span>
 
                 {!isUnavailable && (
                   <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
-                    <ChevronDown className="h-4 w-4 text-petrol-400" />
+                    <ChevronDown className="h-4 w-4 text-ink-400" />
                   </motion.span>
                 )}
               </button>
 
               {isUnavailable && (
-                <p className="px-6 pb-3 text-xs text-petrol-500 dark:text-petrol-400 italic">
+                <p className="px-6 pb-3 text-xs text-ink-500 dark:text-ink-400 italic">
                   {axis.unavailableNote}
                 </p>
               )}
@@ -168,7 +168,7 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
                   >
                     <div className="px-6 pb-4 space-y-2">
                       {relatedEvidence.length === 0 && (
-                        <p className="text-xs text-petrol-500 dark:text-petrol-400 italic">
+                        <p className="text-xs text-ink-500 dark:text-ink-400 italic">
                           Fără dovezi individuale raportate pentru această axă.
                         </p>
                       )}
@@ -178,14 +178,14 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
                           initial={{ opacity: 0, y: 6 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.25, delay: idx * 0.05 }}
-                          className="rounded-lg bg-petrol-50/70 dark:bg-petrol-800/50 p-3 text-xs space-y-1"
+                          className="rounded-lg bg-ink-50/70 dark:bg-ink-800/50 p-3 text-xs space-y-1"
                         >
-                          <p className="font-medium text-petrol-700 dark:text-petrol-200">
+                          <p className="font-medium text-ink-700 dark:text-ink-200">
                             {item.evidenceType} · încredere {Math.round(item.confidence)}%
                           </p>
-                          <p className="text-petrol-600 dark:text-petrol-300">{item.description}</p>
+                          <p className="text-ink-600 dark:text-ink-300">{item.description}</p>
                           {item.textExcerpt && (
-                            <p className="border-l-2 border-petrol-300 dark:border-petrol-600 pl-2 italic text-petrol-500 dark:text-petrol-400">
+                            <p className="border-l-2 border-ink-300 dark:border-ink-600 pl-2 italic text-ink-500 dark:text-ink-400">
                               &ldquo;{item.textExcerpt}&rdquo;
                             </p>
                           )}
