@@ -19,7 +19,7 @@ export function Hero() {
           className="inline-flex items-center gap-2 rounded-full bg-verde-800/40 border border-verde-700/50 px-4 py-1.5 text-xs font-medium text-verde-300 mb-8"
         >
           <Sparkles className="h-3.5 w-3.5" />
-          13 tineri · Programul Național „IA în România" · Grupul Verde
+          Programul Național „IA în România" · Grupul Verde
         </motion.div>
 
         <motion.h1
@@ -39,9 +39,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.22 }}
           className="mt-6 text-base sm:text-lg text-ink-300 max-w-2xl mx-auto leading-relaxed"
         >
-          Construit de 13 tineri din rețeaua națională Grupul Verde, VERIDIC e dovada că
-          generația crescută cu inteligența artificială poate fi cea care o pune în slujba
-          adevărului — nu doar o consumă în tăcere.
+          O platformă care analizează sursa, tonul și logica unui text — și te lasă pe tine
+          să tragi concluzia. Construită de 13 tineri din rețeaua națională Grupul Verde.
         </motion.p>
 
         <motion.div
