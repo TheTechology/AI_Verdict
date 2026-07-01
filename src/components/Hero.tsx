@@ -17,7 +17,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 rounded-full glass-card px-4 py-1.5 text-xs font-medium text-verde-700 dark:text-verde-300 mb-8"
+          className="inline-flex items-center gap-2 rounded-full bg-verde-100/80 dark:bg-verde-800/40 border border-verde-300/60 dark:border-verde-700/50 px-4 py-1.5 text-xs font-medium text-verde-800 dark:text-verde-300 mb-8"
         >
           <Sparkles className="h-3.5 w-3.5" />
           Asociația Grupul Verde · Adjud, Vrancea
@@ -40,8 +40,10 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.22 }}
           className="mt-6 text-base sm:text-lg text-ink-600 dark:text-ink-300 max-w-2xl mx-auto"
         >
-          VERITAS AI e un instrument de analiză contextuală multi-dimensională: sursă, stil
-          retoric, verificabilitate și semne de manipulare — explicate, nu doar scorate.
+          Construit de 13 tineri din rețeaua națională Grupul Verde, VERITAS AI e dovada că
+          generația crescută cu inteligența artificială poate fi cea care o pune în slujba
+          adevărului — sursă, stil retoric, verificabilitate și semne de manipulare, explicate,
+          nu doar scorate.
         </motion.p>
 
         <motion.div
@@ -79,6 +81,20 @@ export function Hero() {
               {badge}
             </span>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-6"
+        >
+          <a
+            href="#povestea"
+            className="text-sm text-verde-700 dark:text-verde-400 underline decoration-verde-400/50 hover:decoration-verde-500"
+          >
+            Descoperă povestea celor 13 tineri și programul național din spatele proiectului →
+          </a>
         </motion.div>
       </div>
     </section>

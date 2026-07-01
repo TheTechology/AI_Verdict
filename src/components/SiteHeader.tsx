@@ -32,6 +32,9 @@ export function SiteHeader() {
           <a href="#piloni" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
             Piloni de analiză
           </a>
+          <a href="#povestea" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
+            Povestea
+          </a>
           <a href="#analiza" className="hover:text-ink-800 dark:hover:text-ink-100 transition-colors">
             Analizează
           </a>

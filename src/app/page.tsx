@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AlertCircle } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { PillarsSection } from "@/components/PillarsSection";
+import { PovesteSection } from "@/components/PovesteSection";
 import { AnalyzeForm } from "@/components/AnalyzeForm";
 import { AnalyzingProgress } from "@/components/AnalyzingProgress";
 import { ScoreDashboard, type AnalysisResultDTO } from "@/components/ScoreDashboard";
@@ -44,6 +45,7 @@ export default function Home() {
     <>
       <Hero />
       <PillarsSection />
+      <PovesteSection />
 
       <section id="analiza" className="max-w-2xl mx-auto px-4 pb-24 space-y-6">
         <div className="text-center mb-4">
