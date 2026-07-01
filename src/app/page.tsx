@@ -68,7 +68,7 @@ export default function Home() {
               De la poveste, la produs
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-50">
-              Testează <span className="text-gradient">VERITAS AI</span> chiar acum
+              Testează <span className="text-gradient">VERIDIC</span> chiar acum
             </h2>
             <p className="text-ink-300 mt-3">
               Lipește un text sau un URL. În câteva secunde, primești nu un verdict, ci o hartă a

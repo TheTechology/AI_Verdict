@@ -48,7 +48,7 @@ export function EducationSection() {
           </h2>
           <p className="text-ink-300 mt-4 leading-relaxed">
             Duce lipsă de infrastructură educațională digitală — cetățeni formați să recunoască
-            singuri mecanismele dezinformării. De aceea fiecare analiză din VERITAS AI e și o
+            singuri mecanismele dezinformării. De aceea fiecare analiză din VERIDIC e și o
             lecție: nu doar „ce", ci <em>de ce</em> anume un fragment de text ridică semne de
             întrebare, cu resurse de aprofundare la un click distanță.
           </p>

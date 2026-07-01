@@ -74,7 +74,7 @@ export function StatsSection() {
       </motion.div>
 
       <StatRow title="Impact · rețeaua Grupul Verde" stats={IMPACT} delayOffset={0.1} />
-      <StatRow title="Performanță · platforma VERITAS AI" stats={PERFORMANTA} delayOffset={0.2} />
+      <StatRow title="Performanță · platforma VERIDIC" stats={PERFORMANTA} delayOffset={0.2} />
     </section>
   );
 }

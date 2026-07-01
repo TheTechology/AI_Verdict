@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ShieldCheck } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 const NAV_LINKS = [
   { href: "#impact", label: "Impact" },
@@ -27,9 +27,8 @@ export function SiteHeader() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-serif font-bold text-ink-50">
-          <ShieldCheck className="h-6 w-6 text-verde-400" />
-          VERITAS AI
+        <a href="#top">
+          <Logo />
         </a>
 
         <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-ink-300">

@@ -65,7 +65,7 @@ export function PovesteSection() {
           className="space-y-4 text-ink-300 leading-relaxed"
         >
           <p>
-            VERITAS AI nu a început ca un exercițiu tehnic. A început cu o întrebare pe care un
+            VERIDIC nu a început ca un exercițiu tehnic. A început cu o întrebare pe care un
             nucleu de <strong className="text-ink-50">13 tineri</strong> din rețeaua Asociației
             Grupul Verde și-a pus-o direct: dacă generația noastră a crescut cu inteligența
             artificială în buzunar, de ce să fim doar consumatori ai ei — și nu ceilalți, cei care
@@ -121,7 +121,7 @@ export function PovesteSection() {
             <ul className="space-y-2 text-sm text-ink-300">
               <li className="flex gap-2">
                 <span className="font-mono text-xs text-verde-400 shrink-0 pt-0.5">2026</span>
-                <span>13 tineri lansează VERITAS AI — Faza 1, MVP funcțional, prima dovadă a programului.</span>
+                <span>13 tineri lansează VERIDIC — Faza 1, MVP funcțional, prima dovadă a programului.</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-mono text-xs text-verde-400 shrink-0 pt-0.5">2026–28</span>
@@ -186,7 +186,7 @@ export function PovesteSection() {
           Cele 9 programe naționale 2026–2035
         </h3>
         <p className="text-sm text-ink-300 mt-3">
-          VERITAS AI e pilonul digital al unei strategii mai largi a{" "}
+          VERIDIC e pilonul digital al unei strategii mai largi a{" "}
           <a href="https://grupulverde.ro/" target="_blank" rel="noreferrer" className="underline decoration-verde-500/50 hover:decoration-verde-400">
             Asociației Grupul Verde
           </a>{" "}

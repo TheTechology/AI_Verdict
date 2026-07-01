@@ -1,4 +1,4 @@
-export const metadata = { title: "Confidențialitate — VERITAS AI" };
+export const metadata = { title: "Confidențialitate — VERIDIC" };
 
 export default function ConfidentialitatePage() {
   return (
@@ -11,7 +11,7 @@ export default function ConfidentialitatePage() {
         conformitate GDPR).
       </p>
       <p>
-        VERITAS AI stochează textul trimis pentru analiză, scorurile rezultate și dovezile
+        VERIDIC stochează textul trimis pentru analiză, scorurile rezultate și dovezile
         generate, pentru a putea afișa rezultatul și a îmbunătăți platforma. Analizele
         individuale nu sunt asociate identității utilizatorului fără consimțământ explicit.
       </p>

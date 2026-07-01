@@ -1,6 +1,6 @@
-# VERITAS AI — Schelet MVP
+# VERIDIC — Schelet MVP
 
-Schelet de cod pentru Faza 1 (MVP) a platformei VERITAS AI, conform
+Schelet de cod pentru Faza 1 (MVP) a platformei VERIDIC, conform
 [specificatie-platforma-anti-dezinformare.md](./specificatie-platforma-anti-dezinformare.md).
 
 Acoperă: analiză text (Pilonii 2 și 4, via Claude API), profiluri de bază pentru surse
@@ -49,7 +49,7 @@ npm run build        # build de producție (Next.js + Prisma Client)
 4. **Variabile de mediu** (Vercel → Project Settings → Environment Variables):
    - `ANTHROPIC_API_KEY`
    - `DATABASE_URL` (connection string-ul Neon)
-   - `NEXT_PUBLIC_SITE_URL` (domeniul final, ex. `https://veritas-ai.ro`) — setează-l
+   - `NEXT_PUBLIC_SITE_URL` (domeniul final, ex. `https://veridic.ro`) — setează-l
      după primul deploy, când cunoști URL-ul real
 5. **Migrații** — Vercel doar face build, nu rulează migrații. Din mașina locală, cu
    `DATABASE_URL` setat la baza de date de producție:
@@ -96,7 +96,7 @@ npm run build        # build de producție (Next.js + Prisma Client)
 Repo-ul local e inițializat cu un prim commit. Pentru a-l pune pe GitHub:
 
 ```bash
-gh repo create veritas-ai --private --source=. --remote=origin
+gh repo create veridic --private --source=. --remote=origin
 git push -u origin main
 ```
 

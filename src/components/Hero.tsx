@@ -39,7 +39,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.22 }}
           className="mt-6 text-base sm:text-lg text-ink-300 max-w-2xl mx-auto leading-relaxed"
         >
-          Construit de 13 tineri din rețeaua națională Grupul Verde, VERITAS AI e dovada că
+          Construit de 13 tineri din rețeaua națională Grupul Verde, VERIDIC e dovada că
           generația crescută cu inteligența artificială poate fi cea care o pune în slujba
           adevărului — nu doar o consumă în tăcere.
         </motion.p>
