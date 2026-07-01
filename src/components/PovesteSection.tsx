@@ -2,7 +2,22 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe2 } from "lucide-react";
+import { ArrowUpRight, Globe2, Users2, Network, CalendarRange, type LucideIcon } from "lucide-react";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+
+interface ImpactStat {
+  icon: LucideIcon;
+  value: number;
+  suffix?: string;
+  label: string;
+}
+
+const IMPACT: ImpactStat[] = [
+  { icon: Users2, value: 13, label: "tineri autori ai aplicației" },
+  { icon: Network, value: 9, label: "programe naționale 2026–2035" },
+  { icon: Users2, value: 3900, suffix: "+", label: "beneficiari în rețeaua Asociației" },
+  { icon: CalendarRange, value: 10, label: "ani de angajament asumat" },
+];
 
 const GALERIE = [
   { src: "/poveste/coding-blocuri.jpg", alt: "Primii pași în programare — logică vizuală, într-un program de educație digitală al Asociației Grupul Verde" },
@@ -55,6 +70,25 @@ export function PovesteSection() {
           13 tineri. O misiune <span className="text-gradient">națională</span>.
         </h2>
       </motion.div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
+        {IMPACT.map((stat, index) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.4, delay: index * 0.06 }}
+            className="glass-card rounded-2xl p-5 text-center sm:text-left"
+          >
+            <stat.icon className="h-4 w-4 text-verde-400 mb-3 mx-auto sm:mx-0" />
+            <p className="font-serif text-3xl sm:text-4xl font-bold text-ink-50 tabular-nums">
+              <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+            </p>
+            <p className="text-xs text-ink-400 mt-1.5 leading-snug">{stat.label}</p>
+          </motion.div>
+        ))}
+      </div>
 
       <div className="grid lg:grid-cols-2 gap-10 items-start mb-16">
         <motion.div

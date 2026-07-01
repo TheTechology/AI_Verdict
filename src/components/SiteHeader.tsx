@@ -6,8 +6,8 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
 
 const NAV_LINKS = [
-  { href: "#impact", label: "Impact" },
   { href: "#piloni", label: "Piloni" },
+  { href: "#cercetare", label: "Cercetare" },
   { href: "#educatie", label: "Educație" },
   { href: "#povestea", label: "Povestea" },
   { href: "#echipa", label: "Echipa" },

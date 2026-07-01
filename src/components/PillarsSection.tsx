@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ScanSearch, MessageSquareWarning, Link2, AlertTriangle, type LucideIcon } from "lucide-react";
+import { ScanSearch, MessageSquareWarning, Link2, AlertTriangle, Layers, Timer, Gauge, type LucideIcon } from "lucide-react";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 interface Pillar {
   icon: LucideIcon;
@@ -39,6 +40,21 @@ const PILLARS: Pillar[] = [
   },
 ];
 
+interface PerfStat {
+  icon: LucideIcon;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}
+
+const PERFORMANTA: PerfStat[] = [
+  { icon: Layers, value: 4, label: "piloni rulați simultan" },
+  { icon: Timer, value: 5, prefix: "<", suffix: "s", label: "pentru o analiză preliminară" },
+  { icon: Gauge, value: 100, label: "scor granular, nu verdict binar" },
+  { icon: Gauge, value: 85, suffix: "%+", label: "acord țintă cu evaluare umană" },
+];
+
 export function PillarsSection() {
   return (
     <section id="piloni" className="max-w-6xl mx-auto px-4 py-20">
@@ -50,14 +66,14 @@ export function PillarsSection() {
         className="text-center max-w-xl mx-auto mb-12"
       >
         <p className="text-xs uppercase tracking-widest text-verde-400 font-medium">
-          Arhitectura funcțională
+          Cum funcționează
         </p>
         <h2 className="font-serif text-3xl font-bold mt-2 text-ink-50">
           Cei 4 piloni de analiză
         </h2>
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-5 mb-10">
         {PILLARS.map((pillar, index) => (
           <motion.div
             key={pillar.title}
@@ -79,6 +95,31 @@ export function PillarsSection() {
             )}
           </motion.div>
         ))}
+      </div>
+
+      <div>
+        <p className="text-xs uppercase tracking-widest text-verde-400 font-medium mb-4 text-center">
+          Performanța aplicației
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {PERFORMANTA.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
+              className="glass-card rounded-2xl p-5 text-center sm:text-left"
+            >
+              <stat.icon className="h-4 w-4 text-verde-400 mb-3 mx-auto sm:mx-0" />
+              <p className="font-serif text-3xl font-bold text-ink-50 tabular-nums">
+                {stat.prefix}
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+              </p>
+              <p className="text-xs text-ink-400 mt-1.5 leading-snug">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

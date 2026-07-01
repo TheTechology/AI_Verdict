@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AlertCircle, Sparkles } from "lucide-react";
+import { AlertCircle, Sparkles, ArrowRight } from "lucide-react";
 import { Hero } from "@/components/Hero";
-import { StatsSection } from "@/components/StatsSection";
 import { PillarsSection } from "@/components/PillarsSection";
 import { ResearchSection } from "@/components/ResearchSection";
 import { EducationSection } from "@/components/EducationSection";
@@ -47,14 +46,13 @@ export default function Home() {
 
   return (
     <>
+      {/* 1. Hook — ce e și de ce contează */}
       <Hero />
-      <StatsSection />
-      <PillarsSection />
-      <ResearchSection />
-      <EducationSection />
-      <PovesteSection />
-      <TeamSection />
 
+      {/* 2. Ce face, concret — cei 4 piloni + performanța aplicației */}
+      <PillarsSection />
+
+      {/* 3. Acțiune timpurie — testează chiar aici, cât ești convins de ce poate face */}
       <section id="analiza" className="relative overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-noise opacity-30" />
         <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[36rem] w-[36rem] rounded-full bg-verde-800/30 blur-3xl -z-10" />
@@ -69,7 +67,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 rounded-full bg-verde-800/40 border border-verde-700/50 px-4 py-1.5 text-xs font-medium text-verde-300 mb-4">
               <Sparkles className="h-3.5 w-3.5" />
-              De la poveste, la produs
+              Nu doar citește — încearcă
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-50">
               Testează <span className="text-gradient">VERIDIC</span> chiar acum
@@ -105,6 +103,33 @@ export default function Home() {
             {result && !loading && <ScoreDashboard key="result" result={result} />}
           </AnimatePresence>
         </div>
+      </section>
+
+      {/* 4. De ce să ai încredere în scor — fundamentarea metodologică */}
+      <ResearchSection />
+
+      {/* 5. Miza mai largă — educație, nu doar unealtă */}
+      <EducationSection />
+
+      {/* 6. Cine și de ce — povestea umană + amploarea programului național */}
+      <PovesteSection />
+
+      {/* 7. Oamenii din spate */}
+      <TeamSection />
+
+      {/* 8. Închiderea buclei — cei care au citit tot, înapoi la acțiune */}
+      <section className="max-w-2xl mx-auto px-4 py-20 text-center">
+        <p className="text-sm text-ink-400">Ai citit povestea. Ai văzut oamenii și cifrele.</p>
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold mt-2 text-ink-50">
+          Acum e rândul tău să <span className="text-gradient">testezi</span>.
+        </h2>
+        <a
+          href="#analiza"
+          className="mt-6 inline-flex items-center gap-2 rounded-full bg-verde-500 hover:bg-verde-400 text-ink-900 font-semibold px-7 py-3.5 shadow-glow-verde transition-all hover:scale-[1.03]"
+        >
+          Analizează un text acum
+          <ArrowRight className="h-4 w-4" />
+        </a>
       </section>
     </>
   );
