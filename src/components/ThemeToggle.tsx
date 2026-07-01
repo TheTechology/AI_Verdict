@@ -2,6 +2,8 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -19,14 +21,16 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="h-9 w-16 rounded-full border border-petrol-300 dark:border-petrol-700 bg-white/60 dark:bg-petrol-800/60 px-1 flex items-center transition-colors"
+      className="relative h-9 w-16 rounded-full border border-petrol-300 dark:border-petrol-700 bg-white/60 dark:bg-petrol-800/60 px-1 flex items-center transition-colors"
       aria-label="Comută mod luminos/întunecat"
     >
-      <span
-        className={`h-7 w-7 rounded-full bg-petrol-600 dark:bg-verde-400 transition-transform ${
-          isDark ? "translate-x-6" : "translate-x-0"
-        }`}
-      />
+      <motion.span
+        animate={{ x: isDark ? 26 : 0 }}
+        transition={{ type: "spring", stiffness: 400, damping: 28 }}
+        className="h-7 w-7 rounded-full bg-petrol-600 dark:bg-verde-500 flex items-center justify-center text-white"
+      >
+        {isDark ? <Moon className="h-3.5 w-3.5" /> : <Sun className="h-3.5 w-3.5" />}
+      </motion.span>
     </button>
   );
 }

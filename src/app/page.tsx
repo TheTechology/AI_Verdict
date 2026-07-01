@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { AlertCircle } from "lucide-react";
+import { Hero } from "@/components/Hero";
+import { PillarsSection } from "@/components/PillarsSection";
 import { AnalyzeForm } from "@/components/AnalyzeForm";
+import { AnalyzingProgress } from "@/components/AnalyzingProgress";
 import { ScoreDashboard, type AnalysisResultDTO } from "@/components/ScoreDashboard";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Home() {
   const [result, setResult] = useState<AnalysisResultDTO | null>(null);
@@ -37,41 +41,45 @@ export default function Home() {
   }
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-10 space-y-8">
-      <header className="flex items-center justify-between">
-        <div>
+    <>
+      <Hero />
+      <PillarsSection />
+
+      <section id="analiza" className="max-w-2xl mx-auto px-4 pb-24 space-y-6">
+        <div className="text-center mb-4">
           <p className="text-xs uppercase tracking-widest text-verde-600 dark:text-verde-400 font-medium">
-            Asociația Grupul Verde · Adjud
+            Testează platforma
           </p>
-          <h1 className="font-serif text-3xl font-bold text-petrol-800 dark:text-petrol-100">VERITAS AI</h1>
-          <p className="text-sm text-petrol-600 dark:text-petrol-300 mt-1">
-            Nu îți spunem ce să crezi. Îți arătăm ce să observi.
-          </p>
+          <h2 className="font-serif text-3xl font-bold mt-2 text-petrol-800 dark:text-petrol-100">
+            Analizează un text
+          </h2>
         </div>
-        <ThemeToggle />
-      </header>
 
-      <AnalyzeForm onSubmit={handleSubmit} loading={loading} />
+        <AnalyzeForm onSubmit={handleSubmit} loading={loading} />
 
-      {error && (
-        <div className="rounded-lg border border-score-severe/30 bg-score-severe/10 px-4 py-3 text-sm text-score-severe">
-          {error}
-        </div>
-      )}
+        <AnimatePresence mode="wait">
+          {loading && (
+            <motion.div key="progress" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+              <AnalyzingProgress />
+            </motion.div>
+          )}
 
-      {result && <ScoreDashboard result={result} />}
+          {error && !loading && (
+            <motion.div
+              key="error"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="flex items-start gap-2 rounded-xl border border-score-severe/30 bg-score-severe/10 px-4 py-3 text-sm text-score-severe"
+            >
+              <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
+              {error}
+            </motion.div>
+          )}
 
-      <footer className="pt-8 text-xs text-petrol-500 dark:text-petrol-400 text-center space-y-1">
-        <p>
-          Schelet MVP — Faza 1. Proiect al Asociației Grupul Verde, aliniat cu misiunea de educație digitală și
-          alfabetizare media.
-        </p>
-        <p>
-          <a href="/confidentialitate" className="underline">
-            Confidențialitate
-          </a>
-        </p>
-      </footer>
-    </main>
+          {result && !loading && <ScoreDashboard key="result" result={result} />}
+        </AnimatePresence>
+      </section>
+    </>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
+import { Loader2, Sparkles } from "lucide-react";
 
 interface AnalyzeFormProps {
   onSubmit: (input: { text: string; url?: string }) => void;
@@ -18,13 +20,17 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
   }
 
   return (
-    <form
+    <motion.form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-petrol-200 dark:border-petrol-700 bg-white dark:bg-petrol-900/40 p-6 shadow-sm space-y-4"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5 }}
+      className="glass-card rounded-2xl p-6 shadow-sm space-y-5"
     >
       <div>
-        <label htmlFor="url" className="block text-sm font-medium text-petrol-700 dark:text-petrol-200 mb-1">
-          URL sursă (opțional)
+        <label htmlFor="url" className="block text-sm font-medium text-petrol-700 dark:text-petrol-200 mb-1.5">
+          URL sursă <span className="text-petrol-400 font-normal">(opțional)</span>
         </label>
         <input
           id="url"
@@ -32,12 +38,12 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="https://exemplu.ro/articol"
-          className="w-full rounded-lg border border-petrol-200 dark:border-petrol-700 bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-petrol-400"
+          className="w-full rounded-xl border border-petrol-200 dark:border-petrol-700 bg-white/70 dark:bg-petrol-900/40 px-3.5 py-2.5 text-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-verde-400 focus:border-transparent"
         />
       </div>
 
       <div>
-        <label htmlFor="text" className="block text-sm font-medium text-petrol-700 dark:text-petrol-200 mb-1">
+        <label htmlFor="text" className="block text-sm font-medium text-petrol-700 dark:text-petrol-200 mb-1.5">
           Text de analizat
         </label>
         <textarea
@@ -48,18 +54,30 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Lipește aici articolul, postarea sau fragmentul de text pe care vrei să îl analizezi..."
-          className="w-full rounded-lg border border-petrol-200 dark:border-petrol-700 bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-petrol-400"
+          className="w-full rounded-xl border border-petrol-200 dark:border-petrol-700 bg-white/70 dark:bg-petrol-900/40 px-3.5 py-2.5 text-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-verde-400 focus:border-transparent"
         />
-        <p className="text-xs text-petrol-400 mt-1 text-right">{text.length} / 20000</p>
+        <p className="text-xs text-petrol-400 mt-1 text-right">{text.length.toLocaleString("ro-RO")} / 20.000</p>
       </div>
 
-      <button
+      <motion.button
         type="submit"
         disabled={loading || !text.trim()}
-        className="w-full rounded-lg bg-petrol-600 hover:bg-petrol-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium py-2.5 transition-colors"
+        whileHover={loading || !text.trim() ? {} : { scale: 1.015 }}
+        whileTap={loading || !text.trim() ? {} : { scale: 0.985 }}
+        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-petrol-700 to-verde-700 disabled:from-petrol-400 disabled:to-petrol-400 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium py-3 shadow-glow transition-all"
       >
-        {loading ? "Se analizează..." : "Analizează"}
-      </button>
-    </form>
+        {loading ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Se analizează...
+          </>
+        ) : (
+          <>
+            <Sparkles className="h-4 w-4" />
+            Analizează
+          </>
+        )}
+      </motion.button>
+    </motion.form>
   );
 }

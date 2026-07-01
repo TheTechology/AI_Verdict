@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Merriweather, Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import "./globals.css";
 
 const serif = Merriweather({
@@ -42,9 +44,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ro" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
-      <body className="font-sans min-h-screen">
+      <body className="font-sans min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          {children}
+          <SiteHeader />
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>

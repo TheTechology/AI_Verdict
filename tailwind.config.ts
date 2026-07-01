@@ -41,6 +41,31 @@ const config: Config = {
           severe: "#b8433a",
         },
       },
+      keyframes: {
+        "blob-float": {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "33%": { transform: "translate(3%, -4%) scale(1.08)" },
+          "66%": { transform: "translate(-3%, 3%) scale(0.95)" },
+        },
+        "fade-in-up": {
+          from: { opacity: "0", transform: "translateY(12px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" },
+        },
+      },
+      animation: {
+        "blob-float": "blob-float 16s ease-in-out infinite",
+        "blob-float-slow": "blob-float 24s ease-in-out infinite reverse",
+        "fade-in-up": "fade-in-up 0.6s ease-out both",
+        shimmer: "shimmer 2.5s linear infinite",
+      },
+      boxShadow: {
+        glow: "0 0 40px -8px rgba(47, 122, 127, 0.45)",
+        "glow-verde": "0 0 40px -8px rgba(95, 154, 90, 0.4)",
+      },
     },
   },
   plugins: [],
