@@ -57,12 +57,17 @@ const config: Config = {
           "0%": { backgroundPosition: "0% 50%" },
           "100%": { backgroundPosition: "200% 50%" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "blob-float": "blob-float 16s ease-in-out infinite",
         "blob-float-slow": "blob-float 24s ease-in-out infinite reverse",
         "fade-in-up": "fade-in-up 0.6s ease-out both",
         shimmer: "shimmer 2.5s linear infinite",
+        marquee: "marquee 36s linear infinite",
       },
       boxShadow: {
         glow: "0 0 40px -8px rgba(90, 158, 52, 0.45)",

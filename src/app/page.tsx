@@ -6,6 +6,7 @@ import { AlertCircle, Sparkles } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { StatsSection } from "@/components/StatsSection";
 import { PillarsSection } from "@/components/PillarsSection";
+import { ResearchSection } from "@/components/ResearchSection";
 import { EducationSection } from "@/components/EducationSection";
 import { PovesteSection } from "@/components/PovesteSection";
 import { AnalyzeForm } from "@/components/AnalyzeForm";
@@ -48,6 +49,7 @@ export default function Home() {
       <Hero />
       <StatsSection />
       <PillarsSection />
+      <ResearchSection />
       <EducationSection />
       <PovesteSection />
 
