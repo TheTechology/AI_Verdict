@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Loader2, Sparkles } from "lucide-react";
 
@@ -10,6 +11,7 @@ interface AnalyzeFormProps {
 }
 
 export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
+  const t = useTranslations("analyzeForm");
   const [text, setText] = useState("");
   const [url, setUrl] = useState("");
 
@@ -30,21 +32,21 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
     >
       <div>
         <label htmlFor="url" className="block text-sm font-medium text-ink-200 mb-1.5">
-          URL sursă <span className="text-ink-500 font-normal">(opțional)</span>
+          {t("urlLabel")} <span className="text-ink-500 font-normal">{t("urlOptional")}</span>
         </label>
         <input
           id="url"
           type="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          placeholder="https://exemplu.ro/articol"
+          placeholder={t("urlPlaceholder")}
           className="w-full rounded-xl border border-ink-700 bg-ink-900/40 px-3.5 py-2.5 text-sm text-ink-50 placeholder:text-ink-500 transition-shadow focus:outline-none focus:ring-2 focus:ring-verde-400 focus:border-transparent"
         />
       </div>
 
       <div>
         <label htmlFor="text" className="block text-sm font-medium text-ink-200 mb-1.5">
-          Text de analizat
+          {t("textLabel")}
         </label>
         <textarea
           id="text"
@@ -53,10 +55,10 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
           maxLength={20000}
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Lipește aici articolul, postarea sau fragmentul de text pe care vrei să îl analizezi..."
+          placeholder={t("textPlaceholder")}
           className="w-full rounded-xl border border-ink-700 bg-ink-900/40 px-3.5 py-2.5 text-sm text-ink-50 placeholder:text-ink-500 transition-shadow focus:outline-none focus:ring-2 focus:ring-verde-400 focus:border-transparent"
         />
-        <p className="text-xs text-ink-500 mt-1 text-right">{text.length.toLocaleString("ro-RO")} / 20.000</p>
+        <p className="text-xs text-ink-500 mt-1 text-right">{text.length.toLocaleString()} / 20,000</p>
       </div>
 
       <motion.button
@@ -69,12 +71,12 @@ export function AnalyzeForm({ onSubmit, loading }: AnalyzeFormProps) {
         {loading ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" />
-            Se analizează...
+            {t("submitLoading")}
           </>
         ) : (
           <>
             <Sparkles className="h-4 w-4" />
-            Analizează
+            {t("submitIdle")}
           </>
         )}
       </motion.button>

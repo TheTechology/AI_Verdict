@@ -9,6 +9,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
+      alternates: {
+        languages: {
+          en: siteUrl,
+          ro: `${siteUrl}/ro`,
+        },
+      },
+    },
+    {
+      url: `${siteUrl}/confidentialitate`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: {
+        languages: {
+          en: `${siteUrl}/confidentialitate`,
+          ro: `${siteUrl}/ro/confidentialitate`,
+        },
+      },
     },
   ];
 }

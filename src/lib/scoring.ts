@@ -46,10 +46,3 @@ export function categorizeIciScore(iciScore: number): ResultCategory {
   if (iciScore >= 25) return "risky";
   return "severe";
 }
-
-export const CATEGORY_LABELS: Record<ResultCategory, { label: string; emoji: string }> = {
-  solid: { label: "Indicatori solizi de fiabilitate", emoji: "🟢" },
-  mixed: { label: "Fiabilitate mixtă — necesită context suplimentar", emoji: "🟡" },
-  risky: { label: "Indicatori multipli de risc — verificare recomandată", emoji: "🟠" },
-  severe: { label: "Indicatori severi de dezinformare/manipulare", emoji: "🔴" },
-};

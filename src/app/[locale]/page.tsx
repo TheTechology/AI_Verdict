@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertCircle, Sparkles, ArrowRight } from "lucide-react";
 import { Hero } from "@/components/Hero";
@@ -14,6 +15,9 @@ import { AnalyzingProgress } from "@/components/AnalyzingProgress";
 import { ScoreDashboard, type AnalysisResultDTO } from "@/components/ScoreDashboard";
 
 export default function Home() {
+  const locale = useLocale();
+  const tAnalyzer = useTranslations("analyzer");
+  const tClosing = useTranslations("closingCta");
   const [result, setResult] = useState<AnalysisResultDTO | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,18 +31,18 @@ export default function Home() {
       const response = await fetch("/api/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(input),
+        body: JSON.stringify({ ...input, locale }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error ?? "Analiza a eșuat.");
+        throw new Error(data.error ?? "Analysis failed.");
       }
 
       setResult(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Eroare necunoscută.");
+      setError(err instanceof Error ? err.message : "Unknown error.");
     } finally {
       setLoading(false);
     }
@@ -67,15 +71,14 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 rounded-full bg-verde-800/40 border border-verde-700/50 px-4 py-1.5 text-xs font-medium text-verde-300 mb-4">
               <Sparkles className="h-3.5 w-3.5" />
-              Nu doar citește — încearcă
+              {tAnalyzer("badge")}
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ink-50">
-              Testează <span className="text-gradient">VERIDIC</span> chiar acum
+              {tAnalyzer("heading").split("VERIDIC")[0]}
+              <span className="text-gradient">VERIDIC</span>
+              {tAnalyzer("heading").split("VERIDIC")[1]}
             </h2>
-            <p className="text-ink-300 mt-3">
-              Lipește un text sau un URL. În câteva secunde, primești nu un verdict, ci o hartă a
-              motivelor pentru care ar trebui — sau nu — să ai încredere în el.
-            </p>
+            <p className="text-ink-300 mt-3">{tAnalyzer("subtext")}</p>
           </motion.div>
 
           <AnalyzeForm onSubmit={handleSubmit} loading={loading} />
@@ -119,15 +122,15 @@ export default function Home() {
 
       {/* 8. Închiderea buclei — cei care au citit tot, înapoi la acțiune */}
       <section className="max-w-2xl mx-auto px-4 py-20 text-center">
-        <p className="text-sm text-ink-400">Ai citit povestea. Ai văzut oamenii și cifrele.</p>
+        <p className="text-sm text-ink-400">{tClosing("eyebrow")}</p>
         <h2 className="font-serif text-2xl sm:text-3xl font-bold mt-2 text-ink-50">
-          Acum e rândul tău să <span className="text-gradient">testezi</span>.
+          {tClosing.rich("heading", { hl: (chunks) => <span className="text-gradient">{chunks}</span> })}
         </h2>
         <a
           href="#analiza"
           className="mt-6 inline-flex items-center gap-2 rounded-full bg-verde-500 hover:bg-verde-400 text-ink-900 font-semibold px-7 py-3.5 shadow-glow-verde transition-all hover:scale-[1.03]"
         >
-          Analizează un text acum
+          {tClosing("button")}
           <ArrowRight className="h-4 w-4" />
         </a>
       </section>

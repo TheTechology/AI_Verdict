@@ -1,59 +1,64 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Globe2, Users2, Network, CalendarRange, type LucideIcon } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 interface ImpactStat {
+  key: string;
   icon: LucideIcon;
   value: number;
   suffix?: string;
-  label: string;
 }
 
 const IMPACT: ImpactStat[] = [
-  { icon: Users2, value: 13, label: "tineri autori ai aplicației" },
-  { icon: Network, value: 9, label: "programe naționale 2026–2035" },
-  { icon: Users2, value: 3900, suffix: "+", label: "beneficiari în rețeaua Asociației" },
-  { icon: CalendarRange, value: 10, label: "ani de angajament asumat" },
+  { key: "youth", icon: Users2, value: 13 },
+  { key: "programs", icon: Network, value: 9 },
+  { key: "beneficiaries", icon: Users2, value: 3900, suffix: "+" },
+  { key: "years", icon: CalendarRange, value: 10 },
 ];
 
 const GALERIE = [
-  { src: "/poveste/coding-blocuri.jpg", alt: "Primii pași în programare — logică vizuală, într-un program de educație digitală al Asociației Grupul Verde" },
-  { src: "/poveste/echipa-laptop.jpg", alt: "Doi tineri, un laptop, o problemă de rezolvat împreună" },
-  { src: "/poveste/laborator-echipa.jpg", alt: "Într-un laborator de calculatoare, ideile devin cod" },
-  { src: "/poveste/concentrare-individuala.jpg", alt: "Concentrare totală — momentul în care tehnologia se construiește, nu doar se consumă" },
-  { src: "/poveste/portret-grup.jpg", alt: "Generația care ascultă, întreabă și construiește" },
-  { src: "/poveste/mentorat.jpg", alt: "Mentorat — un principiu al programului, nu un moment izolat" },
-  { src: "/poveste/minecraft-edu.jpg", alt: "Educație prin joc — instrumente digitale în slujba învățării" },
-  { src: "/poveste/formator-flipchart.jpg", alt: "Formare de formatori — cunoașterea circulă, nu se blochează într-o singură generație" },
-  { src: "/poveste/strategie-pestle.jpg", alt: "Planificare strategică pe termen lung — schimbarea reală se gândește în ani, nu în weekend-uri" },
+  { src: "/poveste/coding-blocuri.jpg", alt: "First steps in programming — visual logic, in a digital education program of Asociația Grupul Verde" },
+  { src: "/poveste/echipa-laptop.jpg", alt: "Two young people, one laptop, a problem to solve together" },
+  { src: "/poveste/laborator-echipa.jpg", alt: "In a computer lab, ideas become code" },
+  { src: "/poveste/concentrare-individuala.jpg", alt: "Total focus — the moment technology is built, not just consumed" },
+  { src: "/poveste/portret-grup.jpg", alt: "The generation that listens, asks, and builds" },
+  { src: "/poveste/mentorat.jpg", alt: "Mentorship — a principle of the program, not an isolated moment" },
+  { src: "/poveste/minecraft-edu.jpg", alt: "Learning through play — digital tools in service of education" },
+  { src: "/poveste/formator-flipchart.jpg", alt: "Training the trainers — knowledge circulates, not locked in a single generation" },
+  { src: "/poveste/strategie-pestle.jpg", alt: "Long-term strategic planning — real change is thought in years, not weekends" },
 ];
 
-interface Program {
-  nr: string;
-  titlu: string;
-  tagline: string;
-  stat: string;
-  slug: string;
-}
+const PROGRAM_KEYS = [
+  "ai",
+  "rights",
+  "climate",
+  "inclusion",
+  "incubator",
+  "jurisprudence",
+  "mobile",
+  "intergenerational",
+  "sensors",
+] as const;
 
-const PROGRAME: Program[] = [
-  { nr: "01", titlu: "IA în România", tagline: "Capacitate critică în fața inteligenței artificiale — o generație care înțelege, nu doar utilizează.", stat: "500+ beneficiari", slug: "ai-cetateni" },
-  { nr: "02", titlu: "Cetățenie & Drepturi", tagline: "Cunoașterea drepturilor este prima condiție a exercitării lor.", stat: "400+ beneficiari", slug: "cetate-drepturi" },
-  { nr: "03", titlu: "Cod & Climatică", tagline: "Soluții la criza climatică — codificate și deployate de tinerii din Vrancea.", stat: "400+ beneficiari", slug: "cod-clima" },
-  { nr: "04", titlu: "Inclusiune Digitală", tagline: "Nicio barieră tehnologică nu ar trebui să devină o barieră în carieră.", stat: "200+ elevi certificați", slug: "inclusiune-digital" },
-  { nr: "05", titlu: "Incubator Tineri Inovatori", tagline: "De la idee la produs funcțional — cu mentorat, tehnologie și capital local.", stat: "200+ tineri", slug: "inovatori-locali" },
-  { nr: "06", titlu: "Observator Jurisprudență Verde", tagline: "Legile de protecție a mediului există. Aplicarea lor, nu întotdeauna.", stat: "500+ beneficiari", slug: "jurisprudenta-verde" },
-  { nr: "07", titlu: "Laborator Mobil", tagline: "Educația tech nu ar trebui să depindă de adresa din buletin.", stat: "1000+ copii din sate", slug: "robot-sate" },
-  { nr: "08", titlu: "Rețea Intergenerațională", tagline: "Tinerii predau tehnologia. Seniorii predau perspectiva.", stat: "600+ persoane conectate", slug: "seniori-tech" },
-  { nr: "09", titlu: "Senzori în Arii Protejate", tagline: "Natura Vrancei, monitorizată în timp real — cu mâinile tinerilor.", stat: "500+ tineri", slug: "senzori-natura" },
-];
-
-const PROGRAM_AI = PROGRAME[0];
+const PROGRAM_SLUGS: Record<(typeof PROGRAM_KEYS)[number], string> = {
+  ai: "ai-cetateni",
+  rights: "cetate-drepturi",
+  climate: "cod-clima",
+  inclusion: "inclusiune-digital",
+  incubator: "inovatori-locali",
+  jurisprudence: "jurisprudenta-verde",
+  mobile: "robot-sate",
+  intergenerational: "seniori-tech",
+  sensors: "senzori-natura",
+};
 
 export function PovesteSection() {
+  const t = useTranslations("story");
+
   return (
     <section id="povestea" className="max-w-6xl mx-auto px-4 py-20">
       <motion.div
@@ -63,18 +68,16 @@ export function PovesteSection() {
         transition={{ duration: 0.5 }}
         className="text-center max-w-2xl mx-auto mb-14"
       >
-        <p className="text-xs uppercase tracking-widest text-verde-400 font-medium">
-          Povestea din spatele aplicației
-        </p>
+        <p className="text-xs uppercase tracking-widest text-verde-400 font-medium">{t("eyebrow")}</p>
         <h2 className="font-serif text-3xl sm:text-4xl font-bold mt-2 text-ink-50">
-          13 tineri. O misiune <span className="text-gradient">națională</span>.
+          {t.rich("heading", { hl: (chunks) => <span className="text-gradient">{chunks}</span> })}
         </h2>
       </motion.div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
         {IMPACT.map((stat, index) => (
           <motion.div
-            key={stat.label}
+            key={stat.key}
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
@@ -85,7 +88,7 @@ export function PovesteSection() {
             <p className="font-serif text-3xl sm:text-4xl font-bold text-ink-50 tabular-nums">
               <AnimatedCounter value={stat.value} suffix={stat.suffix} />
             </p>
-            <p className="text-xs text-ink-400 mt-1.5 leading-snug">{stat.label}</p>
+            <p className="text-xs text-ink-400 mt-1.5 leading-snug">{t(`impact.${stat.key}`)}</p>
           </motion.div>
         ))}
       </div>
@@ -98,34 +101,21 @@ export function PovesteSection() {
           transition={{ duration: 0.5 }}
           className="space-y-4 text-ink-300 leading-relaxed"
         >
+          <p>{t.rich("paragraph1", { strong: (chunks) => <strong className="text-ink-50">{chunks}</strong> })}</p>
           <p>
-            VERIDIC nu a început ca un exercițiu tehnic. A început cu o întrebare pe care un
-            nucleu de <strong className="text-ink-50">13 tineri</strong> din rețeaua Asociației
-            Grupul Verde și-a pus-o direct: dacă generația noastră a crescut cu inteligența
-            artificială în buzunar, de ce să fim doar consumatori ai ei — și nu ceilalți, cei care
-            o construiesc pentru ceva ce contează?
-          </p>
-          <p>
-            Răspunsul e aplicația web pe care o vezi aici. Nu e un proiect izolat de weekend, ci prima
-            livrare concretă a programului{" "}
+            {t("paragraph2Pre")}{" "}
             <a
               href="https://grupulverde.ro/proiecte/ai-cetateni/"
               target="_blank"
               rel="noreferrer"
               className="font-medium text-verde-400 underline decoration-verde-500/50 hover:decoration-verde-400 inline-flex items-center gap-0.5"
             >
-              {PROGRAM_AI.titlu}
+              {t("paragraph2LinkText")}
               <ArrowUpRight className="h-3 w-3" />
             </a>{" "}
-            — unul dintre cele 9 programe naționale 2026–2035 ale Grupului Verde, construit exact
-            pentru o generație care riscă să folosească AI fără să o înțeleagă critic.
+            {t("paragraph2Post")}
           </p>
-          <p>
-            Emoția din spatele codului e simplă: România se numără printre statele UE cele mai
-            expuse dezinformării, iar cea mai bună apărare nu e cenzura — e o generație care știe
-            <em> ce să observe</em>. Cei 13 nu au construit un „detector de minciuni", ci un
-            instrument de gândire critică, exact filosofia pe care și-a asumat-o din prima zi.
-          </p>
+          <p>{t.rich("paragraph3", { em: (chunks) => <em>{chunks}</em> })}</p>
         </motion.div>
 
         <motion.div
@@ -138,43 +128,37 @@ export function PovesteSection() {
           <div className="flex items-start gap-3">
             <Globe2 className="h-5 w-5 text-verde-400 mt-0.5 shrink-0" />
             <div>
-              <h3 className="font-semibold text-ink-50 text-sm">Dimensiunea europeană</h3>
+              <h3 className="font-semibold text-ink-50 text-sm">{t("sidebar.europeanTitle")}</h3>
               <p className="text-sm text-ink-300 mt-1 leading-relaxed">
-                Aplicația se aliniază direct cu <strong>Digital Services Act</strong> — primul cadru
-                legal european care tratează dezinformarea sistemică drept risc pentru spațiul public
-                — și cu rețeaua <strong>EDMO</strong> (European Digital Media Observatory). Aceeași
-                logică pe care Asociația Grupul Verde o aplică deja programelor sale — construiește local,
-                documentează transparent, fă-l replicabil — e gândită de la început pentru finanțare
-                și parteneriate europene: Erasmus+, Digital Europe Programme, Horizon Europe.
+                {t.rich("sidebar.europeanText", { strong: (chunks) => <strong>{chunks}</strong> })}
               </p>
             </div>
           </div>
 
           <div className="border-t border-ink-800 pt-4">
-            <h3 className="font-semibold text-ink-50 text-sm mb-2">Traiectoria</h3>
+            <h3 className="font-semibold text-ink-50 text-sm mb-2">{t("sidebar.trajectoryTitle")}</h3>
             <ul className="space-y-2 text-sm text-ink-300">
               <li className="flex gap-2">
                 <span className="font-mono text-xs text-verde-400 shrink-0 pt-0.5">2026</span>
-                <span>13 tineri lansează VERIDIC — Faza 1, MVP funcțional, prima dovadă a programului.</span>
+                <span>{t("sidebar.trajectory2026")}</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-mono text-xs text-verde-400 shrink-0 pt-0.5">2026–28</span>
-                <span>Verificare surse citate, fact-checkeri parteneri (IFCN/EDMO), API public.</span>
+                <span>{t("sidebar.trajectory2026_28")}</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-mono text-xs text-verde-400 shrink-0 pt-0.5">2035</span>
                 <span>
-                  Țintă asumată de programul-pilon: rețea de{" "}
+                  {t("sidebar.trajectory2035Pre")}{" "}
                   <a
                     href="https://grupulverde.ro/proiecte/ai-cetateni/"
                     target="_blank"
                     rel="noreferrer"
                     className="underline decoration-verde-500/50 hover:decoration-verde-400"
                   >
-                    1.000+ tineri
+                    {t("sidebar.trajectory2035LinkText")}
                   </a>{" "}
-                  cu competențe de literație AI, curriculum integrat în școli, reglementări locale
-                  influențate de advocacy-ul propriu.
+                  {t("sidebar.trajectory2035Post")}
                 </span>
               </li>
             </ul>
@@ -192,19 +176,11 @@ export function PovesteSection() {
             transition={{ duration: 0.4, delay: index * 0.05 }}
             className="relative aspect-[4/5] rounded-xl overflow-hidden glass-card"
           >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="(max-width: 640px) 50vw, 33vw"
-              className="object-cover"
-            />
+            <Image src={img.src} alt={img.alt} fill sizes="(max-width: 640px) 50vw, 33vw" className="object-cover" />
           </motion.div>
         ))}
       </div>
-      <p className="text-center text-xs text-ink-500 italic -mt-12 mb-16">
-        Imagini din activitățile și rețeaua Asociației Grupul Verde — ilustrative pentru spiritul programului.
-      </p>
+      <p className="text-center text-xs text-ink-500 italic -mt-12 mb-16">{t("galleryCaption")}</p>
 
       <motion.div
         initial={{ opacity: 0, y: 12 }}
@@ -213,26 +189,27 @@ export function PovesteSection() {
         transition={{ duration: 0.5 }}
         className="text-center max-w-2xl mx-auto mb-10"
       >
-        <p className="text-xs uppercase tracking-widest text-verde-400 font-medium">
-          Zece ani, nu un trimestru
-        </p>
-        <h3 className="font-serif text-2xl sm:text-3xl font-bold mt-2 text-ink-50">
-          Cele 9 programe naționale 2026–2035
-        </h3>
+        <p className="text-xs uppercase tracking-widest text-verde-400 font-medium">{t("programsEyebrow")}</p>
+        <h3 className="font-serif text-2xl sm:text-3xl font-bold mt-2 text-ink-50">{t("programsHeading")}</h3>
         <p className="text-sm text-ink-300 mt-3">
-          VERIDIC e pilonul digital al unei strategii mai largi a{" "}
-          <a href="https://grupulverde.ro/" target="_blank" rel="noreferrer" className="underline decoration-verde-500/50 hover:decoration-verde-400">
-            Asociației Grupul Verde
+          {t("programsSubtextPre")}{" "}
+          <a
+            href="https://grupulverde.ro/"
+            target="_blank"
+            rel="noreferrer"
+            className="underline decoration-verde-500/50 hover:decoration-verde-400"
+          >
+            {t("programsSubtextLinkText")}
           </a>{" "}
-          — nu proiecte punctuale, ci angajamente pe termen lung, cu ținte 2035 măsurabile.
+          {t("programsSubtextPost")}
         </p>
       </motion.div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {PROGRAME.map((program, index) => (
+        {PROGRAM_KEYS.map((key, index) => (
           <motion.a
-            key={program.slug}
-            href={`https://grupulverde.ro/proiecte/${program.slug}/`}
+            key={key}
+            href={`https://grupulverde.ro/proiecte/${PROGRAM_SLUGS[key]}/`}
             target="_blank"
             rel="noreferrer"
             initial={{ opacity: 0, y: 14 }}
@@ -242,12 +219,12 @@ export function PovesteSection() {
             className="glass-card rounded-2xl p-5 group hover:shadow-glow transition-shadow flex flex-col"
           >
             <div className="flex items-start justify-between gap-2">
-              <span className="font-mono text-xs text-verde-400">{program.nr}</span>
+              <span className="font-mono text-xs text-verde-400">{String(index + 1).padStart(2, "0")}</span>
               <ArrowUpRight className="h-4 w-4 text-ink-600 group-hover:text-verde-400 transition-colors" />
             </div>
-            <h4 className="font-semibold text-ink-50 mt-2">{program.titlu}</h4>
-            <p className="text-sm text-ink-300 mt-1.5 leading-relaxed flex-1">{program.tagline}</p>
-            <p className="text-xs font-medium text-verde-400 mt-3">{program.stat}</p>
+            <h4 className="font-semibold text-ink-50 mt-2">{t(`programs.${key}.title`)}</h4>
+            <p className="text-sm text-ink-300 mt-1.5 leading-relaxed flex-1">{t(`programs.${key}.tagline`)}</p>
+            <p className="text-xs font-medium text-verde-400 mt-3">{t(`programs.${key}.stat`)}</p>
           </motion.a>
         ))}
       </div>
@@ -259,7 +236,7 @@ export function PovesteSection() {
           rel="noreferrer"
           className="inline-flex items-center gap-2 rounded-full bg-verde-500 hover:bg-verde-400 text-ink-900 font-semibold px-6 py-3 shadow-glow-verde transition-all hover:scale-[1.03]"
         >
-          Vezi toate cele 9 programe pe grupulverde.ro
+          {t("exploreAll")}
           <ArrowUpRight className="h-4 w-4" />
         </a>
       </div>

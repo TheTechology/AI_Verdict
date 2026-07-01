@@ -1,38 +1,34 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Loader2 } from "lucide-react";
 
-const STEPS = [
-  "Analiza sursei",
-  "Analiza stilului retoric",
-  "Verificarea surselor citate",
-  "Detectarea semnelor de manipulare",
-  "Agregarea scorurilor",
-];
+const STEP_KEYS = ["source", "rhetoric", "verification", "manipulation", "aggregation"] as const;
 
 const STEP_INTERVAL_MS = 900;
 
 export function AnalyzingProgress() {
+  const t = useTranslations("analyzingProgress.steps");
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     setActiveStep(0);
     const interval = setInterval(() => {
-      setActiveStep((step) => (step < STEPS.length - 1 ? step + 1 : step));
+      setActiveStep((step) => (step < STEP_KEYS.length - 1 ? step + 1 : step));
     }, STEP_INTERVAL_MS);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="glass-card rounded-2xl p-6 space-y-3">
-      {STEPS.map((step, index) => {
+      {STEP_KEYS.map((key, index) => {
         const isDone = index < activeStep;
         const isActive = index === activeStep;
 
         return (
-          <div key={step} className="flex items-center gap-3 text-sm">
+          <div key={key} className="flex items-center gap-3 text-sm">
             <span
               className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-colors ${
                 isDone ? "bg-verde-500 text-ink-900" : isActive ? "bg-verde-700 text-ink-50" : "bg-ink-800 text-ink-500"
@@ -52,7 +48,7 @@ export function AnalyzingProgress() {
                 )}
               </AnimatePresence>
             </span>
-            <span className={isDone || isActive ? "text-ink-50 font-medium" : "text-ink-500"}>{step}</span>
+            <span className={isDone || isActive ? "text-ink-50 font-medium" : "text-ink-500"}>{t(key)}</span>
           </div>
         );
       })}

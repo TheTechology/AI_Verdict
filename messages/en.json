@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "title": "VERIDIC — The tool of a generation that doesn't just believe, it verifies",
+    "description": "13 young people, a national mission: the web app that shows the mechanics of disinformation, not just a verdict. A project of Asociația Grupul Verde, Adjud."
+  },
+  "nav": {
+    "piloni": "Pillars",
+    "cercetare": "Research",
+    "educatie": "Education",
+    "povestea": "Story",
+    "echipa": "Team",
+    "cta": "Analyze",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "hero": {
+    "badge": "National Program „AI in Romania\" · Asociația Grupul Verde",
+    "titleLine1Pre": "We don't tell you",
+    "titleLine1Highlight": "what to believe",
+    "titleLine2Pre": "We show you",
+    "titleLine2Highlight": "what to observe",
+    "subtitle": "A web app that analyzes the source, tone, and logic of a text — and lets you draw the conclusion. Built by 13 young people from the national network of Asociația Grupul Verde.",
+    "ctaPrimary": "Try the app",
+    "ctaSecondary": "The story of the 13"
+  },
+  "pillars": {
+    "eyebrow": "How it works",
+    "heading": "The 4 pillars of analysis",
+    "items": {
+      "source": {
+        "title": "Source Analysis",
+        "description": "Who publishes — historical reputation, editorial transparency, bot vs. human account signals."
+      },
+      "rhetoric": {
+        "title": "Rhetorical Style",
+        "description": "Excessive emotional tone, fallacies, absolutist language, headline-content mismatch."
+      },
+      "verification": {
+        "title": "Source Verification",
+        "description": "Do the cited sources exist and say what the article claims? Circularity, selective quoting.",
+        "status": "Available in Phase 2"
+      },
+      "manipulation": {
+        "title": "Manipulation Signals",
+        "description": "Astroturfing, inauthentic coordination, statistical manipulation, fabricated expertise."
+      }
+    },
+    "perfEyebrow": "App performance",
+    "perf": {
+      "pillars": "pillars run simultaneously",
+      "speed": "for a preliminary analysis",
+      "score": "granular score, not a binary verdict",
+      "accuracy": "target agreement with human evaluation"
+    }
+  },
+  "research": {
+    "eyebrow": "We're not alone in this mission",
+    "headingPre": "Anchored in",
+    "headingHighlight": "global research",
+    "subtext": "VERIDIC's methodology is built on the standards set by the reference organizations in disinformation research at European and global level.",
+    "orgs": {
+      "dfrlab": {
+        "name": "DFRLab",
+        "location": "Digital Forensic Research Lab · Atlantic Council, USA",
+        "description": "A global reference in analyzing coordinated disinformation campaigns and open-source intelligence (OSINT)."
+      },
+      "bellingcat": {
+        "name": "Bellingcat",
+        "location": "Global open-source investigation network",
+        "description": "Image and video verification methodologies — directly applicable to Pillar 3 (source verification).",
+        "pillarTag": "Pillar 3"
+      },
+      "isd": {
+        "name": "ISD",
+        "location": "Institute for Strategic Dialogue · United Kingdom",
+        "description": "Research on extremism, disinformation, and manipulation on social networks."
+      },
+      "globsec": {
+        "name": "GLOBSEC",
+        "location": "Think tank · Bratislava, Slovakia",
+        "description": "Annual reports on disinformation vulnerability in Central Europe — directly relevant to Romania."
+      },
+      "euvsdisinfo": {
+        "name": "EUvsDisinfo",
+        "location": "European External Action Service (EEAS)",
+        "description": "The EU database of documented disinformation cases — a direct data source for Pillar 4 (manipulation).",
+        "pillarTag": "Pillar 4"
+      },
+      "nato": {
+        "name": "NATO StratCom COE",
+        "location": "NATO Centre of Excellence · Riga, Latvia",
+        "description": "Research on strategic communication and information warfare."
+      }
+    },
+    "disclaimer": "Reference organizations for the app's methodology — this does not imply an official affiliation or partnership."
+  },
+  "education": {
+    "eyebrow": "Education, not just a verdict",
+    "heading": "Romania doesn't just lack <hl>fact-checking</hl>.",
+    "paragraph": "It lacks digital educational infrastructure — citizens trained to recognize the mechanisms of disinformation on their own. That's why every analysis in VERIDIC is also a lesson: not just \"what\", but <em>why</em> a piece of text raises questions, with resources to go deeper one click away.",
+    "features": {
+      "courses": {
+        "title": "Certified courses",
+        "description": "Interactive media literacy, with a certificate on completion — real proof of civic competence."
+      },
+      "gamification": {
+        "title": "Gamified challenges",
+        "description": "Disinformation-recognition quizzes and challenges, with a leaderboard — learning becomes a team game."
+      },
+      "teacherPortal": {
+        "title": "Teacher portal",
+        "description": "Integrable with school platforms, for teachers who teach critical thinking every day."
+      },
+      "caseLibrary": {
+        "title": "Real case library",
+        "description": "Anonymized, pedagogically annotated cases — theory turned into concrete examples."
+      }
+    }
+  },
+  "story": {
+    "eyebrow": "The story behind the app",
+    "heading": "13 young people. A <hl>national</hl> mission.",
+    "impact": {
+      "youth": "young authors of the app",
+      "programs": "national programs 2026–2035",
+      "beneficiaries": "beneficiaries in the Asociația's network",
+      "years": "years of committed engagement"
+    },
+    "paragraph1": "VERIDIC didn't start as a technical exercise. It started with a question a core group of <strong>13 young people</strong> from the Asociația Grupul Verde network asked themselves directly: if our generation grew up with artificial intelligence, why should we only be consumers of it — and not the ones who build it for something that matters?",
+    "paragraph2Pre": "The answer is the web app you see here. It's not an isolated weekend project, but the first concrete delivery of the",
+    "paragraph2LinkText": "AI in Romania",
+    "paragraph2Post": "program — one of the 9 national programs 2026–2035 of Grupul Verde, built exactly for a generation at risk of using AI without understanding it critically.",
+    "paragraph3": "The emotion behind the code is simple: Romania is among the EU states most exposed to disinformation, and the best defense isn't censorship — it's a generation that knows <em>what to observe</em>. The 13 didn't build a \"lie detector\", but a critical-thinking tool — exactly the philosophy it committed to from day one.",
+    "sidebar": {
+      "europeanTitle": "The European dimension",
+      "europeanText": "The app aligns directly with the <strong>Digital Services Act</strong> — the first European legal framework treating systemic disinformation as a risk to the public space — and with the <strong>EDMO</strong> network (European Digital Media Observatory). The same logic Asociația Grupul Verde already applies to its programs — build locally, document transparently, make it replicable — is designed from the start for European funding and partnerships: Erasmus+, Digital Europe Programme, Horizon Europe.",
+      "trajectoryTitle": "The trajectory",
+      "trajectory2026": "13 young people launch VERIDIC — Phase 1, functional MVP, the program's first proof of concept.",
+      "trajectory2026_28": "Cited-source verification, partner fact-checkers (IFCN/EDMO), public API.",
+      "trajectory2035Pre": "Target set by the flagship program: a network of",
+      "trajectory2035LinkText": "1,000+ young people",
+      "trajectory2035Post": "with AI-literacy skills, curriculum integrated into schools, local regulation influenced by their own advocacy."
+    },
+    "galleryCaption": "Images from Asociația Grupul Verde's activities and network — illustrative of the program's spirit.",
+    "programsEyebrow": "Ten years, not a quarter",
+    "programsHeading": "The 9 national programs 2026–2035",
+    "programsSubtextPre": "VERIDIC is the digital pillar of a broader strategy of",
+    "programsSubtextLinkText": "Asociația Grupul Verde",
+    "programsSubtextPost": "— not one-off projects, but long-term commitments, with measurable 2035 targets.",
+    "programs": {
+      "ai": { "title": "AI in Romania", "tagline": "Critical capacity in the face of artificial intelligence — a generation that understands, not just uses.", "stat": "500+ beneficiaries" },
+      "rights": { "title": "Citizenship & Rights", "tagline": "Knowing your rights is the first condition for exercising them.", "stat": "400+ beneficiaries" },
+      "climate": { "title": "Code & Climate", "tagline": "Solutions to the climate crisis — coded and deployed by young people from Vrancea.", "stat": "400+ beneficiaries" },
+      "inclusion": { "title": "Digital Inclusion", "tagline": "No technological barrier should become a career barrier.", "stat": "200+ certified students" },
+      "incubator": { "title": "Young Innovators Incubator", "tagline": "From idea to working product — with mentorship, technology, and local capital.", "stat": "200+ young people" },
+      "jurisprudence": { "title": "Green Jurisprudence Observatory", "tagline": "Environmental protection laws exist. Their enforcement, not always.", "stat": "500+ beneficiaries" },
+      "mobile": { "title": "Mobile Lab", "tagline": "Tech education shouldn't depend on your home address.", "stat": "1,000+ children from villages" },
+      "intergenerational": { "title": "Intergenerational Network", "tagline": "Young people teach technology. Seniors teach perspective.", "stat": "600+ people connected" },
+      "sensors": { "title": "Sensors in Protected Areas", "tagline": "Vrancea's nature, monitored in real time — by young people's own hands.", "stat": "500+ young people" }
+    },
+    "exploreAll": "See all 9 programs on grupulverde.ro"
+  },
+  "team": {
+    "eyebrow": "Who built the app",
+    "heading": "The team behind VERIDIC",
+    "coordinatorLabel": "National Program Coordinator",
+    "coordinatorBio1": "IT Coordinator and Project Manager at Asociația Grupul Verde, where he also serves as Director of Educational Programs. Accredited ANC trainer, certified Cisco Networking Academy instructor, and accredited FPED trainer in AI education, with extensive experience writing and managing European projects (Horizon Europe, the LIFE programme, Erasmus+) and coordinating multi-partner international consortia.",
+    "coordinatorBio2": "He initiated the „AI in Romania\" program as a direct response to the digital educational infrastructure gap identified among young people in Vrancea — and coordinated the core group of 13 young people who turned that need into VERIDIC, the program's first concrete delivery.",
+    "volunteers": {
+      "backend": {
+        "role": "Volunteer · Architecture & Backend",
+        "contribution": "Built the analysis pipeline and the integration with the AI reasoning engine.",
+        "howJoined": "Joined through Asociația Grupul Verde's Cisco Networking Academy courses."
+      },
+      "design": {
+        "role": "Volunteer · Interface & Experience",
+        "contribution": "Gave visual shape to the app's philosophy of \"showing, not telling\" — from wireframe to interaction.",
+        "howJoined": "Joined the team through the network's digital education workshops."
+      },
+      "data": {
+        "role": "Volunteer · Data & Methodology",
+        "contribution": "Worked on credibility scoring and alignment with disinformation-research standards.",
+        "howJoined": "Started in Code.org and Marty robotics, then moved into the AI literacy program."
+      },
+      "community": {
+        "role": "Volunteer · Community & Testing",
+        "contribution": "Coordinated testing on real content, calibrating the app against over-flagging legitimate opinions.",
+        "howJoined": "Came from Grupul Verde's civic activism track, drawn by the project's educational stakes."
+      }
+    },
+    "footnote": "The full names of the 4 volunteers will be added with their explicit consent."
+  },
+  "analyzer": {
+    "badge": "Don't just read — try it",
+    "heading": "Test VERIDIC right now",
+    "subtext": "Paste a text or a URL. In a few seconds, you get not a verdict, but a map of the reasons why you should — or shouldn't — trust it."
+  },
+  "analyzeForm": {
+    "urlLabel": "Source URL",
+    "urlOptional": "(optional)",
+    "urlPlaceholder": "https://example.com/article",
+    "textLabel": "Text to analyze",
+    "textPlaceholder": "Paste the article, post, or text fragment you want to analyze here...",
+    "submitIdle": "Analyze",
+    "submitLoading": "Analyzing..."
+  },
+  "analyzingProgress": {
+    "steps": {
+      "source": "Analyzing the source",
+      "rhetoric": "Analyzing rhetorical style",
+      "verification": "Verifying cited sources",
+      "manipulation": "Detecting manipulation signals",
+      "aggregation": "Aggregating scores"
+    }
+  },
+  "scoreDashboard": {
+    "iciLabel": "Composite Trust Index (CTI)",
+    "categories": {
+      "solid": { "emoji": "🟢", "label": "Solid reliability indicators" },
+      "mixed": { "emoji": "🟡", "label": "Mixed reliability — needs more context" },
+      "risky": { "emoji": "🟠", "label": "Multiple risk indicators — verification recommended" },
+      "severe": { "emoji": "🔴", "label": "Severe disinformation/manipulation indicators" }
+    },
+    "axes": {
+      "source": "Source Credibility",
+      "rhetoric": "Rhetorical Integrity",
+      "verifiability": "Source Verifiability",
+      "manipulation": "Manipulation Risk",
+      "verifiabilityUnavailable": "Available in Phase 2 of the project (cited-source verification + reverse image search)."
+    },
+    "confidenceLabel": "confidence",
+    "noEvidence": "No individual evidence reported for this axis."
+  },
+  "closingCta": {
+    "eyebrow": "You've read the story. You've seen the people and the numbers.",
+    "heading": "Now it's your turn to <hl>test</hl> it.",
+    "button": "Analyze a text now"
+  },
+  "footer": {
+    "textPre": "The digital pillar of the",
+    "textLinkText": "2026–2035 strategy of Asociația Grupul Verde",
+    "textPost": "— 9 programs, 3,900+ beneficiaries, Adjud, Vrancea",
+    "backToTop": "Back to top",
+    "privacy": "Privacy"
+  },
+  "privacy": {
+    "title": "Privacy — draft",
+    "draftNotice": "This text is a draft for the development team, NOT a publishable privacy policy. Before public launch, this page must be reviewed by a lawyer and adapted to the app's real data flow (section 11 of the specification — GDPR compliance).",
+    "paragraph1": "VERIDIC stores the text submitted for analysis, the resulting scores, and the generated evidence, in order to display the result and improve the app. Individual analyses are not linked to the user's identity without explicit consent.",
+    "paragraph2Pre": "The submitted text is sent to Anthropic (the provider of the Claude model) for processing, in accordance with the",
+    "paragraph2LinkText": "Anthropic privacy policy",
+    "paragraph2Post": ".",
+    "todoNote": "[Team TODO: add the real contact address for data-related questions here (e.g. a dedicated @grupulverde.ro address), once established.]"
+  }
+}

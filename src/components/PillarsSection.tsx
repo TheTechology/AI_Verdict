@@ -1,61 +1,42 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ScanSearch, MessageSquareWarning, Link2, AlertTriangle, Layers, Timer, Gauge, type LucideIcon } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 interface Pillar {
+  key: string;
   icon: LucideIcon;
-  title: string;
-  description: string;
   accent: string;
-  status?: string;
+  hasStatus?: boolean;
 }
 
 const PILLARS: Pillar[] = [
-  {
-    icon: ScanSearch,
-    title: "Analiza Sursei",
-    description: "Cine publică — reputație istorică, transparență redacțională, semnale de bot vs. cont uman.",
-    accent: "text-verde-300 bg-verde-800/40",
-  },
-  {
-    icon: MessageSquareWarning,
-    title: "Stil Retoric",
-    description: "Ton emoțional excesiv, sofisme, limbaj absolutist, discrepanță titlu-conținut.",
-    accent: "text-verde-300 bg-verde-800/40",
-  },
-  {
-    icon: Link2,
-    title: "Verificarea Surselor",
-    description: "Sursele citate există și spun ce pretinde articolul? Circularitate, citare selectivă.",
-    accent: "text-ink-200 bg-ink-800",
-    status: "Disponibil în Faza 2",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Semne de Manipulare",
-    description: "Astroturfing, coordonare inautentică, manipulare statistică, fabricare de expertiză.",
-    accent: "text-score-risky bg-score-risky/15",
-  },
+  { key: "source", icon: ScanSearch, accent: "text-verde-300 bg-verde-800/40" },
+  { key: "rhetoric", icon: MessageSquareWarning, accent: "text-verde-300 bg-verde-800/40" },
+  { key: "verification", icon: Link2, accent: "text-ink-200 bg-ink-800", hasStatus: true },
+  { key: "manipulation", icon: AlertTriangle, accent: "text-score-risky bg-score-risky/15" },
 ];
 
 interface PerfStat {
+  key: string;
   icon: LucideIcon;
   value: number;
   prefix?: string;
   suffix?: string;
-  label: string;
 }
 
 const PERFORMANTA: PerfStat[] = [
-  { icon: Layers, value: 4, label: "piloni rulați simultan" },
-  { icon: Timer, value: 5, prefix: "<", suffix: "s", label: "pentru o analiză preliminară" },
-  { icon: Gauge, value: 100, label: "scor granular, nu verdict binar" },
-  { icon: Gauge, value: 85, suffix: "%+", label: "acord țintă cu evaluare umană" },
+  { key: "pillars", icon: Layers, value: 4 },
+  { key: "speed", icon: Timer, value: 5, prefix: "<", suffix: "s" },
+  { key: "score", icon: Gauge, value: 100 },
+  { key: "accuracy", icon: Gauge, value: 85, suffix: "%+" },
 ];
 
 export function PillarsSection() {
+  const t = useTranslations("pillars");
+
   return (
     <section id="piloni" className="max-w-6xl mx-auto px-4 py-20">
       <motion.div
@@ -65,18 +46,14 @@ export function PillarsSection() {
         transition={{ duration: 0.5 }}
         className="text-center max-w-xl mx-auto mb-12"
       >
-        <p className="text-xs uppercase tracking-widest text-verde-400 font-medium">
-          Cum funcționează
-        </p>
-        <h2 className="font-serif text-3xl font-bold mt-2 text-ink-50">
-          Cei 4 piloni de analiză
-        </h2>
+        <p className="text-xs uppercase tracking-widest text-verde-400 font-medium">{t("eyebrow")}</p>
+        <h2 className="font-serif text-3xl font-bold mt-2 text-ink-50">{t("heading")}</h2>
       </motion.div>
 
       <div className="grid sm:grid-cols-2 gap-5 mb-10">
         {PILLARS.map((pillar, index) => (
           <motion.div
-            key={pillar.title}
+            key={pillar.key}
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -86,11 +63,11 @@ export function PillarsSection() {
             <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${pillar.accent} mb-4`}>
               <pillar.icon className="h-5 w-5" />
             </div>
-            <h3 className="font-semibold text-ink-50">{pillar.title}</h3>
-            <p className="text-sm text-ink-300 mt-1.5 leading-relaxed">{pillar.description}</p>
-            {pillar.status && (
+            <h3 className="font-semibold text-ink-50">{t(`items.${pillar.key}.title`)}</h3>
+            <p className="text-sm text-ink-300 mt-1.5 leading-relaxed">{t(`items.${pillar.key}.description`)}</p>
+            {pillar.hasStatus && (
               <span className="inline-block mt-3 text-[11px] font-medium text-ink-500 italic">
-                {pillar.status}
+                {t(`items.${pillar.key}.status`)}
               </span>
             )}
           </motion.div>
@@ -99,12 +76,12 @@ export function PillarsSection() {
 
       <div>
         <p className="text-xs uppercase tracking-widest text-verde-400 font-medium mb-4 text-center">
-          Performanța aplicației
+          {t("perfEyebrow")}
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {PERFORMANTA.map((stat, index) => (
             <motion.div
-              key={stat.label}
+              key={stat.key}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -116,7 +93,7 @@ export function PillarsSection() {
                 {stat.prefix}
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="text-xs text-ink-400 mt-1.5 leading-snug">{stat.label}</p>
+              <p className="text-xs text-ink-400 mt-1.5 leading-snug">{t(`perf.${stat.key}`)}</p>
             </motion.div>
           ))}
         </div>

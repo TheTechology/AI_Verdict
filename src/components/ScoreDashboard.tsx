@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { CATEGORY_LABELS, type ResultCategory } from "@/lib/scoring";
+import { type ResultCategory } from "@/lib/scoring";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 export interface EvidenceItemDTO {
@@ -44,44 +45,20 @@ const CATEGORY_BAR: Record<ResultCategory, string> = {
 
 interface AxisConfig {
   key: string;
-  label: string;
   value: number | null;
   pillarFilter: string;
-  unavailableNote?: string;
 }
 
 export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
+  const t = useTranslations("scoreDashboard");
   const [openAxis, setOpenAxis] = useState<string | null>(null);
 
   const axes: AxisConfig[] = [
-    {
-      key: "source",
-      label: "Credibilitate Sursă",
-      value: result.scores.sourceCredibilityScore,
-      pillarFilter: "credibilitate_sursa",
-    },
-    {
-      key: "rhetoric",
-      label: "Integritate Retorică",
-      value: result.scores.rhetoricIntegrityScore,
-      pillarFilter: "stil_retoric",
-    },
-    {
-      key: "verifiability",
-      label: "Verificabilitate Surse",
-      value: result.scores.verifiabilityScore,
-      pillarFilter: "verificare_surse",
-      unavailableNote: "Disponibil în Faza 2 a proiectului (verificare surse citate + reverse image search).",
-    },
-    {
-      key: "manipulation",
-      label: "Risc Manipulare",
-      value: result.scores.manipulationRiskScore,
-      pillarFilter: "semne_manipulare",
-    },
+    { key: "source", value: result.scores.sourceCredibilityScore, pillarFilter: "credibilitate_sursa" },
+    { key: "rhetoric", value: result.scores.rhetoricIntegrityScore, pillarFilter: "stil_retoric" },
+    { key: "verifiability", value: result.scores.verifiabilityScore, pillarFilter: "verificare_surse" },
+    { key: "manipulation", value: result.scores.manipulationRiskScore, pillarFilter: "semne_manipulare" },
   ];
-
-  const categoryInfo = CATEGORY_LABELS[result.category];
 
   return (
     <motion.div
@@ -91,17 +68,12 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
       className="glass-card rounded-2xl shadow-glow overflow-hidden"
     >
       <div className={`p-6 text-white bg-gradient-to-br ${CATEGORY_GRADIENT[result.category]}`}>
-        <p className="text-sm uppercase tracking-wide opacity-80">Indice Compozit de Încredere (ICI)</p>
+        <p className="text-sm uppercase tracking-wide opacity-80">{t("iciLabel")}</p>
         <p className="font-serif text-5xl font-bold mt-1 tabular-nums">
           <AnimatedCounter value={Math.round(result.iciScore)} /> / 100
         </p>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="mt-2 text-sm"
-        >
-          {categoryInfo.emoji} {categoryInfo.label}
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-2 text-sm">
+          {t(`categories.${result.category}.emoji`)} {t(`categories.${result.category}.label`)}
         </motion.p>
       </div>
 
@@ -113,9 +85,7 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
         {axes.map((axis, index) => {
           const isOpen = openAxis === axis.key;
           const isUnavailable = axis.value === null;
-          const relatedEvidence = result.evidenceItems.filter(
-            (item) => item.pillar === axis.pillarFilter
-          );
+          const relatedEvidence = result.evidenceItems.filter((item) => item.pillar === axis.pillarFilter);
 
           return (
             <div key={axis.key}>
@@ -125,9 +95,7 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
                 onClick={() => setOpenAxis(isOpen ? null : axis.key)}
                 className="w-full flex items-center gap-4 px-6 py-4 text-left disabled:cursor-not-allowed disabled:opacity-50 hover:bg-ink-800/40 transition-colors"
               >
-                <span className="font-medium text-sm text-ink-100 w-40 shrink-0">
-                  {axis.label}
-                </span>
+                <span className="font-medium text-sm text-ink-100 w-40 shrink-0">{t(`axes.${axis.key}`)}</span>
 
                 <span className="flex-1 h-2 rounded-full bg-ink-800 overflow-hidden">
                   {!isUnavailable && (
@@ -152,7 +120,7 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
               </button>
 
               {isUnavailable && (
-                <p className="px-6 pb-3 text-xs text-ink-400 italic">{axis.unavailableNote}</p>
+                <p className="px-6 pb-3 text-xs text-ink-400 italic">{t("axes.verifiabilityUnavailable")}</p>
               )}
 
               <AnimatePresence initial={false}>
@@ -166,9 +134,7 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
                   >
                     <div className="px-6 pb-4 space-y-2">
                       {relatedEvidence.length === 0 && (
-                        <p className="text-xs text-ink-400 italic">
-                          Fără dovezi individuale raportate pentru această axă.
-                        </p>
+                        <p className="text-xs text-ink-400 italic">{t("noEvidence")}</p>
                       )}
                       {relatedEvidence.map((item, idx) => (
                         <motion.div
@@ -179,7 +145,7 @@ export function ScoreDashboard({ result }: { result: AnalysisResultDTO }) {
                           className="rounded-lg bg-ink-800/50 p-3 text-xs space-y-1"
                         >
                           <p className="font-medium text-ink-200">
-                            {item.evidenceType} · încredere {Math.round(item.confidence)}%
+                            {item.evidenceType} · {t("confidenceLabel")} {Math.round(item.confidence)}%
                           </p>
                           <p className="text-ink-300">{item.description}</p>
                           {item.textExcerpt && (

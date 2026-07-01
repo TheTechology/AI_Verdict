@@ -8,9 +8,25 @@ import { checkRateLimit } from "@/lib/rateLimit";
 interface AnalyzeRequestBody {
   text: string;
   url?: string;
+  locale?: string;
 }
 
 const MAX_TEXT_LENGTH = 20_000;
+
+const ERROR_MESSAGES: Record<string, { rateLimited: string; textRequired: string; textTooLong: (max: number) => string; analysisFailed: (msg: string) => string }> = {
+  en: {
+    rateLimited: "Too many requests. Please try again in a moment.",
+    textRequired: "The text to analyze is required.",
+    textTooLong: (max) => `Text is too long (max ${max} characters).`,
+    analysisFailed: (msg) => `Analysis failed (check ANTHROPIC_API_KEY): ${msg}`,
+  },
+  ro: {
+    rateLimited: "Prea multe cereri. Încearcă din nou în câteva momente.",
+    textRequired: "Textul de analizat este obligatoriu.",
+    textTooLong: (max) => `Textul e prea lung (max ${max} caractere).`,
+    analysisFailed: (msg) => `Analiza a eșuat (verifică ANTHROPIC_API_KEY): ${msg}`,
+  },
+};
 
 function getClientIdentifier(request: NextRequest): string {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -18,27 +34,27 @@ function getClientIdentifier(request: NextRequest): string {
 }
 
 export async function POST(request: NextRequest) {
+  const body = (await request.json()) as AnalyzeRequestBody;
+  const locale = body.locale === "ro" ? "ro" : "en";
+  const m = ERROR_MESSAGES[locale];
+
   const clientId = getClientIdentifier(request);
   const rateLimit = checkRateLimit(clientId);
   if (!rateLimit.allowed) {
     return NextResponse.json(
-      { error: "Prea multe cereri. Încearcă din nou în câteva momente." },
+      { error: m.rateLimited },
       { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds ?? 60) } }
     );
   }
 
-  const body = (await request.json()) as AnalyzeRequestBody;
   const text = body.text?.trim();
 
   if (!text) {
-    return NextResponse.json({ error: "Textul de analizat este obligatoriu." }, { status: 400 });
+    return NextResponse.json({ error: m.textRequired }, { status: 400 });
   }
 
   if (text.length > MAX_TEXT_LENGTH) {
-    return NextResponse.json(
-      { error: `Textul e prea lung (max ${MAX_TEXT_LENGTH} caractere).` },
-      { status: 413 }
-    );
+    return NextResponse.json({ error: m.textTooLong(MAX_TEXT_LENGTH) }, { status: 413 });
   }
 
   const url = body.url?.trim() || null;
@@ -47,15 +63,12 @@ export async function POST(request: NextRequest) {
   let sourceCredibility: Awaited<ReturnType<typeof getSourceCredibility>>;
   try {
     [styleAnalysis, sourceCredibility] = await Promise.all([
-      analyzeTextStyle(text),
-      getSourceCredibility(url),
+      analyzeTextStyle(text, locale),
+      getSourceCredibility(url, locale),
     ]);
   } catch (err) {
-    const message = err instanceof Error ? err.message : "Eroare necunoscută";
-    return NextResponse.json(
-      { error: `Analiza a eșuat (verifică ANTHROPIC_API_KEY): ${message}` },
-      { status: 502 }
-    );
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ error: m.analysisFailed(message) }, { status: 502 });
   }
 
   // Pilonul 3 (verificare surse citate) e planificat pentru Faza 2 — nu e disponibil în MVP.
@@ -74,6 +87,7 @@ export async function POST(request: NextRequest) {
       url,
       rawText: text,
       contentType: url ? "article" : "text_snippet",
+      language: locale,
     },
   });
 
@@ -97,7 +111,7 @@ export async function POST(request: NextRequest) {
           })),
           {
             pillar: "credibilitate_sursa",
-            evidenceType: sourceCredibility.isKnown ? "profil_cunoscut" : "profil_necunoscut",
+            evidenceType: sourceCredibility.isKnown ? "known_profile" : "unknown_profile",
             description: sourceCredibility.note,
             textExcerpt: null,
             confidence: sourceCredibility.isKnown ? 80 : 30,

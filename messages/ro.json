@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "title": "VERIDIC — Instrumentul unei generații care nu doar crede, ci verifică",
+    "description": "13 tineri, o misiune națională: aplicația web care arată mecanismele dezinformării, nu doar un verdict. Un proiect al Asociației Grupul Verde, Adjud."
+  },
+  "nav": {
+    "piloni": "Piloni",
+    "cercetare": "Cercetare",
+    "educatie": "Educație",
+    "povestea": "Povestea",
+    "echipa": "Echipa",
+    "cta": "Analizează",
+    "menuOpen": "Deschide meniul",
+    "menuClose": "Închide meniul"
+  },
+  "hero": {
+    "badge": "Programul Național „IA în România\" · Asociația Grupul Verde",
+    "titleLine1Pre": "Nu îți spunem",
+    "titleLine1Highlight": "ce să crezi",
+    "titleLine2Pre": "Îți arătăm",
+    "titleLine2Highlight": "ce să observi",
+    "subtitle": "O aplicație web care analizează sursa, tonul și logica unui text — și te lasă pe tine să tragi concluzia. Construită de 13 tineri din rețeaua națională a Asociației Grupul Verde.",
+    "ctaPrimary": "Testează aplicația",
+    "ctaSecondary": "Povestea celor 13 tineri"
+  },
+  "pillars": {
+    "eyebrow": "Cum funcționează",
+    "heading": "Cei 4 piloni de analiză",
+    "items": {
+      "source": {
+        "title": "Analiza Sursei",
+        "description": "Cine publică — reputație istorică, transparență redacțională, semnale de bot vs. cont uman."
+      },
+      "rhetoric": {
+        "title": "Stil Retoric",
+        "description": "Ton emoțional excesiv, sofisme, limbaj absolutist, discrepanță titlu-conținut."
+      },
+      "verification": {
+        "title": "Verificarea Surselor",
+        "description": "Sursele citate există și spun ce pretinde articolul? Circularitate, citare selectivă.",
+        "status": "Disponibil în Faza 2"
+      },
+      "manipulation": {
+        "title": "Semne de Manipulare",
+        "description": "Astroturfing, coordonare inautentică, manipulare statistică, fabricare de expertiză."
+      }
+    },
+    "perfEyebrow": "Performanța aplicației",
+    "perf": {
+      "pillars": "piloni rulați simultan",
+      "speed": "pentru o analiză preliminară",
+      "score": "scor granular, nu verdict binar",
+      "accuracy": "acord țintă cu evaluare umană"
+    }
+  },
+  "research": {
+    "eyebrow": "Nu suntem singuri în această misiune",
+    "headingPre": "Ancorat în",
+    "headingHighlight": "cercetare globală",
+    "subtext": "Metodologia VERIDIC se construiește pe standardele stabilite de organizațiile de referință în cercetarea dezinformării la nivel european și global.",
+    "orgs": {
+      "dfrlab": {
+        "name": "DFRLab",
+        "location": "Digital Forensic Research Lab · Atlantic Council, SUA",
+        "description": "Referință globală în analiza campaniilor de dezinformare coordonată și open-source intelligence (OSINT)."
+      },
+      "bellingcat": {
+        "name": "Bellingcat",
+        "location": "Rețea globală de investigații open-source",
+        "description": "Metodologii de verificare a imaginilor și video — aplicabile direct Pilonului 3 (verificarea surselor).",
+        "pillarTag": "Pilonul 3"
+      },
+      "isd": {
+        "name": "ISD",
+        "location": "Institute for Strategic Dialogue · Marea Britanie",
+        "description": "Cercetare privind extremismul, dezinformarea și manipularea pe rețelele sociale."
+      },
+      "globsec": {
+        "name": "GLOBSEC",
+        "location": "Think tank · Bratislava, Slovacia",
+        "description": "Rapoarte anuale despre vulnerabilitatea la dezinformare în Europa Centrală — relevant direct pentru România."
+      },
+      "euvsdisinfo": {
+        "name": "EUvsDisinfo",
+        "location": "Serviciul European de Acțiune Externă (EEAS)",
+        "description": "Baza de date UE cu cazuri documentate de dezinformare — sursă directă de date pentru Pilonul 4 (manipulare).",
+        "pillarTag": "Pilonul 4"
+      },
+      "nato": {
+        "name": "NATO StratCom COE",
+        "location": "Centrul de Excelență NATO · Riga, Letonia",
+        "description": "Cercetare pe comunicare strategică și război informațional."
+      }
+    },
+    "disclaimer": "Organizații de referință pentru metodologia aplicației — nu implică o afiliere sau parteneriat oficial."
+  },
+  "education": {
+    "eyebrow": "Educație, nu doar verdict",
+    "heading": "România nu duce lipsă doar de <hl>fact-checking</hl>.",
+    "paragraph": "Duce lipsă de infrastructură educațională digitală — cetățeni formați să recunoască singuri mecanismele dezinformării. De aceea fiecare analiză din VERIDIC e și o lecție: nu doar „ce\", ci <em>de ce</em> anume un fragment de text ridică semne de întrebare, cu resurse de aprofundare la un click distanță.",
+    "features": {
+      "courses": {
+        "title": "Cursuri cu certificare",
+        "description": "Alfabetizare media interactivă, cu certificat la finalizare — dovadă reală de competență civică."
+      },
+      "gamification": {
+        "title": "Provocări gamificate",
+        "description": "Quiz-uri și provocări de recunoaștere a dezinformării, cu leaderboard — învățarea devine joc de echipă."
+      },
+      "teacherPortal": {
+        "title": "Portal pentru profesori",
+        "description": "Integrabil cu platformele școlare, pentru profesorii care predau gândire critică zi de zi."
+      },
+      "caseLibrary": {
+        "title": "Bibliotecă de cazuri reale",
+        "description": "Cazuri anonimizate și adnotate pedagogic — teorie transformată în exemple concrete."
+      }
+    }
+  },
+  "story": {
+    "eyebrow": "Povestea din spatele aplicației",
+    "heading": "13 tineri. O misiune <hl>națională</hl>.",
+    "impact": {
+      "youth": "tineri autori ai aplicației",
+      "programs": "programe naționale 2026–2035",
+      "beneficiaries": "beneficiari în rețeaua Asociației",
+      "years": "ani de angajament asumat"
+    },
+    "paragraph1": "VERIDIC nu a început ca un exercițiu tehnic. A început cu o întrebare pe care un nucleu de <strong>13 tineri</strong> din rețeaua Asociației Grupul Verde și-a pus-o direct: dacă generația noastră a crescut cu inteligența artificială în buzunar, de ce să fim doar consumatori ai ei — și nu ceilalți, cei care o construiesc pentru ceva ce contează?",
+    "paragraph2Pre": "Răspunsul e aplicația web pe care o vezi aici. Nu e un proiect izolat de weekend, ci prima livrare concretă a programului",
+    "paragraph2LinkText": "IA în România",
+    "paragraph2Post": "— unul dintre cele 9 programe naționale 2026–2035 ale Grupului Verde, construit exact pentru o generație care riscă să folosească AI fără să o înțeleagă critic.",
+    "paragraph3": "Emoția din spatele codului e simplă: România se numără printre statele UE cele mai expuse dezinformării, iar cea mai bună apărare nu e cenzura — e o generație care știe <em>ce să observe</em>. Cei 13 nu au construit un „detector de minciuni\", ci un instrument de gândire critică, exact filosofia pe care și-a asumat-o din prima zi.",
+    "sidebar": {
+      "europeanTitle": "Dimensiunea europeană",
+      "europeanText": "Aplicația se aliniază direct cu <strong>Digital Services Act</strong> — primul cadru legal european care tratează dezinformarea sistemică drept risc pentru spațiul public — și cu rețeaua <strong>EDMO</strong> (European Digital Media Observatory). Aceeași logică pe care Asociația Grupul Verde o aplică deja programelor sale — construiește local, documentează transparent, fă-l replicabil — e gândită de la început pentru finanțare și parteneriate europene: Erasmus+, Digital Europe Programme, Horizon Europe.",
+      "trajectoryTitle": "Traiectoria",
+      "trajectory2026": "13 tineri lansează VERIDIC — Faza 1, MVP funcțional, prima dovadă a programului.",
+      "trajectory2026_28": "Verificare surse citate, fact-checkeri parteneri (IFCN/EDMO), API public.",
+      "trajectory2035Pre": "Țintă asumată de programul-pilon: rețea de",
+      "trajectory2035LinkText": "1.000+ tineri",
+      "trajectory2035Post": "cu competențe de literație AI, curriculum integrat în școli, reglementări locale influențate de advocacy-ul propriu."
+    },
+    "galleryCaption": "Imagini din activitățile și rețeaua Asociației Grupul Verde — ilustrative pentru spiritul programului.",
+    "programsEyebrow": "Zece ani, nu un trimestru",
+    "programsHeading": "Cele 9 programe naționale 2026–2035",
+    "programsSubtextPre": "VERIDIC e pilonul digital al unei strategii mai largi a",
+    "programsSubtextLinkText": "Asociației Grupul Verde",
+    "programsSubtextPost": "— nu proiecte punctuale, ci angajamente pe termen lung, cu ținte 2035 măsurabile.",
+    "programs": {
+      "ai": { "title": "IA în România", "tagline": "Capacitate critică în fața inteligenței artificiale — o generație care înțelege, nu doar utilizează.", "stat": "500+ beneficiari" },
+      "rights": { "title": "Cetățenie & Drepturi", "tagline": "Cunoașterea drepturilor este prima condiție a exercitării lor.", "stat": "400+ beneficiari" },
+      "climate": { "title": "Cod & Climatică", "tagline": "Soluții la criza climatică — codificate și deployate de tinerii din Vrancea.", "stat": "400+ beneficiari" },
+      "inclusion": { "title": "Inclusiune Digitală", "tagline": "Nicio barieră tehnologică nu ar trebui să devină o barieră în carieră.", "stat": "200+ elevi certificați" },
+      "incubator": { "title": "Incubator Tineri Inovatori", "tagline": "De la idee la produs funcțional — cu mentorat, tehnologie și capital local.", "stat": "200+ tineri" },
+      "jurisprudence": { "title": "Observator Jurisprudență Verde", "tagline": "Legile de protecție a mediului există. Aplicarea lor, nu întotdeauna.", "stat": "500+ beneficiari" },
+      "mobile": { "title": "Laborator Mobil", "tagline": "Educația tech nu ar trebui să depindă de adresa din buletin.", "stat": "1000+ copii din sate" },
+      "intergenerational": { "title": "Rețea Intergenerațională", "tagline": "Tinerii predau tehnologia. Seniorii predau perspectiva.", "stat": "600+ persoane conectate" },
+      "sensors": { "title": "Senzori în Arii Protejate", "tagline": "Natura Vrancei, monitorizată în timp real — cu mâinile tinerilor.", "stat": "500+ tineri" }
+    },
+    "exploreAll": "Vezi toate cele 9 programe pe grupulverde.ro"
+  },
+  "team": {
+    "eyebrow": "Cine a construit aplicația",
+    "heading": "Echipa din spatele VERIDIC",
+    "coordinatorLabel": "Coordonator Program Național",
+    "coordinatorBio1": "IT Coordinator și Project Manager al Asociației Grupul Verde, unde ocupă și funcția de Director de Programe Educaționale. Formator acreditat ANC, instructor certificat Cisco Networking Academy și trainer acreditat FPED pe educație AI, cu experiență extinsă în scriere și management de proiecte europene (Horizon Europe, programul LIFE, Erasmus+) și în coordonarea de consorții internaționale multi-partener.",
+    "coordinatorBio2": "A inițiat programul „IA în România\" ca răspuns direct la nevoia de infrastructură educațională digitală identificată în rândul tinerilor din Vrancea — și a coordonat nucleul de 13 tineri care a transformat acea nevoie în VERIDIC, prima livrare concretă a programului.",
+    "volunteers": {
+      "backend": {
+        "role": "Voluntar · Arhitectură & Backend",
+        "contribution": "A construit pipeline-ul de analiză și integrarea cu motorul de raționament AI.",
+        "howJoined": "Venit din cursurile Cisco Networking Academy ale Asociației Grupul Verde."
+      },
+      "design": {
+        "role": "Voluntar · Interfață & Experiență",
+        "contribution": "A dat formă vizuală filosofiei aplicației — de la wireframe la interacțiune.",
+        "howJoined": "Ajuns în echipă prin atelierele de educație digitală ale rețelei."
+      },
+      "data": {
+        "role": "Voluntar · Date & Metodologie",
+        "contribution": "A lucrat la scorurile de credibilitate și la alinierea cu standardele de cercetare a dezinformării.",
+        "howJoined": "Implicat inițial în Code.org și robotică Marty, apoi în programul de literație AI."
+      },
+      "community": {
+        "role": "Voluntar · Comunitate & Testare",
+        "contribution": "A coordonat testarea pe conținut real, calibrând aplicația împotriva supra-marcării opiniilor legitime.",
+        "howJoined": "Venit din activismul civic al rețelei Grupul Verde, atras de miza educațională a proiectului."
+      }
+    },
+    "footnote": "Numele complete ale celor 4 voluntari vor fi adăugate cu acordul lor explicit."
+  },
+  "analyzer": {
+    "badge": "Nu doar citește — încearcă",
+    "heading": "Testează VERIDIC chiar acum",
+    "subtext": "Lipește un text sau un URL. În câteva secunde, primești nu un verdict, ci o hartă a motivelor pentru care ar trebui — sau nu — să ai încredere în el."
+  },
+  "analyzeForm": {
+    "urlLabel": "URL sursă",
+    "urlOptional": "(opțional)",
+    "urlPlaceholder": "https://exemplu.ro/articol",
+    "textLabel": "Text de analizat",
+    "textPlaceholder": "Lipește aici articolul, postarea sau fragmentul de text pe care vrei să îl analizezi...",
+    "submitIdle": "Analizează",
+    "submitLoading": "Se analizează..."
+  },
+  "analyzingProgress": {
+    "steps": {
+      "source": "Analiza sursei",
+      "rhetoric": "Analiza stilului retoric",
+      "verification": "Verificarea surselor citate",
+      "manipulation": "Detectarea semnelor de manipulare",
+      "aggregation": "Agregarea scorurilor"
+    }
+  },
+  "scoreDashboard": {
+    "iciLabel": "Indice Compozit de Încredere (ICI)",
+    "categories": {
+      "solid": { "emoji": "🟢", "label": "Indicatori solizi de fiabilitate" },
+      "mixed": { "emoji": "🟡", "label": "Fiabilitate mixtă — necesită context suplimentar" },
+      "risky": { "emoji": "🟠", "label": "Indicatori multipli de risc — verificare recomandată" },
+      "severe": { "emoji": "🔴", "label": "Indicatori severi de dezinformare/manipulare" }
+    },
+    "axes": {
+      "source": "Credibilitate Sursă",
+      "rhetoric": "Integritate Retorică",
+      "verifiability": "Verificabilitate Surse",
+      "manipulation": "Risc Manipulare",
+      "verifiabilityUnavailable": "Disponibil în Faza 2 a proiectului (verificare surse citate + reverse image search)."
+    },
+    "confidenceLabel": "încredere",
+    "noEvidence": "Fără dovezi individuale raportate pentru această axă."
+  },
+  "closingCta": {
+    "eyebrow": "Ai citit povestea. Ai văzut oamenii și cifrele.",
+    "heading": "Acum e rândul tău să <hl>testezi</hl>.",
+    "button": "Analizează un text acum"
+  },
+  "footer": {
+    "textPre": "Pilonul digital al",
+    "textLinkText": "strategiei 2026–2035 a Asociației Grupul Verde",
+    "textPost": "— 9 programe, 3.900+ beneficiari, Adjud, Vrancea",
+    "backToTop": "Sus de tot",
+    "privacy": "Confidențialitate"
+  },
+  "privacy": {
+    "title": "Confidențialitate — schiță",
+    "draftNotice": "Acest text e o schiță pentru echipa de dezvoltare, NU o politică de confidențialitate publicabilă. Înainte de lansarea publică, această pagină trebuie revizuită de un jurist și adaptată la fluxul real de date al aplicației (secțiunea 11 din specificație — conformitate GDPR).",
+    "paragraph1": "VERIDIC stochează textul trimis pentru analiză, scorurile rezultate și dovezile generate, pentru a putea afișa rezultatul și a îmbunătăți aplicația. Analizele individuale nu sunt asociate identității utilizatorului fără consimțământ explicit.",
+    "paragraph2Pre": "Textul trimis este transmis către Anthropic (furnizorul modelului Claude) pentru procesare, conform",
+    "paragraph2LinkText": "politicii de confidențialitate Anthropic",
+    "paragraph2Post": ".",
+    "todoNote": "[TODO echipă: adaugă aici adresa de contact reală pentru întrebări despre date (ex. o adresă dedicată @grupulverde.ro), după ce e stabilită.]"
+  }
+}

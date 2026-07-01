@@ -18,21 +18,21 @@ export interface TextAnalysisResult {
 }
 
 const ANALYSIS_TOOL: Anthropic.Tool = {
-  name: "raport_analiza_text",
+  name: "report_text_analysis",
   description:
-    "Raportează rezultatul analizei de stil retoric (Pilonul 2) și semne de manipulare (Pilonul 4) pentru un fragment de text.",
+    "Reports the rhetorical-style analysis (Pillar 2) and manipulation-signal analysis (Pillar 4) for a piece of text.",
   input_schema: {
     type: "object",
     properties: {
       rhetoricIntegrityScore: {
         type: "number",
         description:
-          "0-100. 100 = ton neutru, argumentare coerentă, fără sofisme, fără limbaj absolutist. 0 = ton emoțional excesiv, clickbait, sofisme evidente.",
+          "0-100. 100 = neutral tone, coherent argumentation, no fallacies, no absolutist language. 0 = excessive emotional tone, clickbait, obvious fallacies.",
       },
       manipulationRiskScore: {
         type: "number",
         description:
-          "0-100. 100 = indicatori severi de propagandă/manipulare (astroturfing, whataboutism, manipulare statistică). 0 = fără indicatori de manipulare.",
+          "0-100. 100 = severe propaganda/manipulation indicators (astroturfing, whataboutism, statistical manipulation). 0 = no manipulation indicators.",
       },
       evidenceItems: {
         type: "array",
@@ -46,12 +46,12 @@ const ANALYSIS_TOOL: Anthropic.Tool = {
             evidenceType: {
               type: "string",
               description:
-                "Ex: 'ton_emotional_excesiv', 'sofism_ad_hominem', 'limbaj_absolutist', 'manipulare_statistica', 'fabricare_expertiza'.",
+                "Stable English snake_case machine tag, ALWAYS in English regardless of the requested response language. E.g. 'excessive_emotional_tone', 'ad_hominem_fallacy', 'absolutist_language', 'statistical_manipulation', 'fabricated_expertise'.",
             },
             description: { type: "string" },
             textExcerpt: {
               type: "string",
-              description: "Fragmentul exact din text care ilustrează dovada, dacă există.",
+              description: "The exact fragment from the text that illustrates the evidence, if any.",
             },
             confidence: { type: "number", description: "0-100" },
           },
@@ -60,29 +60,39 @@ const ANALYSIS_TOOL: Anthropic.Tool = {
       },
       summary: {
         type: "string",
-        description: "Rezumat scurt, în limbaj natural, al principalelor concluzii (2-3 fraze).",
+        description: "Short, natural-language summary of the main findings (2-3 sentences).",
       },
     },
     required: ["rhetoricIntegrityScore", "manipulationRiskScore", "evidenceItems", "summary"],
   },
 };
 
-const SYSTEM_PROMPT = `Ești motorul de analiză al aplicației web VERIDIC, un instrument de alfabetizare media care ajută cetățenii să evalueze conținut informațional.
-Filozofia aplicației: "Nu îți spunem ce să crezi. Îți arătăm ce să observi." Analizezi STIL și tehnici retorice/de manipulare, nu adevărul de fond al afirmațiilor.
-Fii precis, citează fragmente exacte din text ca dovezi, și nu marca opinii legitime sau conținut controversat-dar-legitim ca manipulare doar pentru că nu ești de acord cu poziția exprimată.
-Raportează rezultatul EXCLUSIV prin apelul instrumentului furnizat.`;
+const RESPONSE_LANGUAGE: Record<string, string> = {
+  en: "English",
+  ro: "Romanian",
+};
 
-export async function analyzeTextStyle(text: string): Promise<TextAnalysisResult> {
+function buildSystemPrompt(languageName: string): string {
+  return `You are the analysis engine of VERIDIC, a media-literacy web app that helps citizens evaluate informational content.
+App philosophy: "We don't tell you what to believe. We show you what to observe." You analyze STYLE and rhetorical/manipulation techniques, not the factual truth of the claims.
+Be precise, quote exact fragments from the text as evidence, and do not flag legitimate opinions or controversial-but-legitimate content as manipulation just because you disagree with the position expressed.
+Write the "description" and "summary" fields in ${languageName}. The "evidenceType" field must ALWAYS be an English snake_case tag, regardless of the response language.
+Report the result EXCLUSIVELY through the provided tool call.`;
+}
+
+export async function analyzeTextStyle(text: string, locale: string = "en"): Promise<TextAnalysisResult> {
+  const languageName = RESPONSE_LANGUAGE[locale] ?? RESPONSE_LANGUAGE.en;
+
   const message = await client.messages.create({
     model: "claude-sonnet-5",
     max_tokens: 2048,
-    system: SYSTEM_PROMPT,
+    system: buildSystemPrompt(languageName),
     tools: [ANALYSIS_TOOL],
     tool_choice: { type: "tool", name: ANALYSIS_TOOL.name },
     messages: [
       {
         role: "user",
-        content: `Analizează următorul text conform Pilonului 2 (stil retoric) și Pilonului 4 (semne de manipulare):\n\n"""${text}"""`,
+        content: `Analyze the following text per Pillar 2 (rhetorical style) and Pillar 4 (manipulation signals). Respond in ${languageName}:\n\n"""${text}"""`,
       },
     ],
   });
@@ -92,7 +102,7 @@ export async function analyzeTextStyle(text: string): Promise<TextAnalysisResult
     | undefined;
 
   if (!toolUse) {
-    throw new Error("Motorul de analiză nu a returnat un rezultat structurat.");
+    throw new Error("The analysis engine did not return a structured result.");
   }
 
   return toolUse.input as TextAnalysisResult;
