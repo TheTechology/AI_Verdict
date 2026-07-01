@@ -9,6 +9,7 @@ import { PillarsSection } from "@/components/PillarsSection";
 import { ResearchSection } from "@/components/ResearchSection";
 import { EducationSection } from "@/components/EducationSection";
 import { PovesteSection } from "@/components/PovesteSection";
+import { TeamSection } from "@/components/TeamSection";
 import { AnalyzeForm } from "@/components/AnalyzeForm";
 import { AnalyzingProgress } from "@/components/AnalyzingProgress";
 import { ScoreDashboard, type AnalysisResultDTO } from "@/components/ScoreDashboard";
@@ -52,6 +53,7 @@ export default function Home() {
       <ResearchSection />
       <EducationSection />
       <PovesteSection />
+      <TeamSection />
 
       <section id="analiza" className="relative overflow-hidden py-24">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-noise opacity-30" />

@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "#piloni", label: "Piloni" },
   { href: "#educatie", label: "Educație" },
   { href: "#povestea", label: "Povestea" },
+  { href: "#echipa", label: "Echipa" },
 ];
 
 export function SiteHeader() {
