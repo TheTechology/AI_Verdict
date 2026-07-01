@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ContentType {
+  article
+  social_post
+  text_snippet
+}
+
+enum ResultCategory {
+  solid
+  mixed
+  risky
+  severe
+}
+
+enum SourceEntityType {
+  media_outlet
+  individual
+  bot_suspected
+  institution
+  unknown
+}
+
+model ContentItem {
+  id            String      @id @default(uuid())
+  url           String?
+  rawText       String
+  contentType   ContentType @default(text_snippet)
+  language      String      @default("ro")
+  submittedAt   DateTime    @default(now())
+  analysisResult AnalysisResult?
+
+  @@map("content_items")
+}
+
+model AnalysisResult {
+  id                      String         @id @default(uuid())
+  contentItem             ContentItem    @relation(fields: [contentItemId], references: [id])
+  contentItemId           String         @unique
+  iciScore                Float
+  sourceCredibilityScore  Float
+  rhetoricIntegrityScore  Float
+  verifiabilityScore      Float?
+  manipulationRiskScore   Float
+  category                ResultCategory
+  generatedAt             DateTime       @default(now())
+  evidenceItems           EvidenceItem[]
+
+  @@map("analysis_results")
+}
+
+model EvidenceItem {
+  id               String         @id @default(uuid())
+  analysisResult   AnalysisResult @relation(fields: [analysisResultId], references: [id])
+  analysisResultId String
+  pillar           String
+  evidenceType     String
+  description      String
+  textExcerpt      String?
+  confidence        Float
+
+  @@map("evidence_items")
+}
+
+model SourceProfile {
+  id                        String           @id @default(uuid())
+  domain                    String           @unique
+  entityType                SourceEntityType @default(unknown)
+  historicalCredibilityScore Float
+  note                      String?
+  firstSeen                 DateTime         @default(now())
+  lastUpdated               DateTime         @updatedAt
+
+  @@map("source_profiles")
+}
