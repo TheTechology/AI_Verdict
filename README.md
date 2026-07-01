@@ -1,6 +1,6 @@
 # VERIDIC — Schelet MVP
 
-Schelet de cod pentru Faza 1 (MVP) a platformei VERIDIC, conform
+Schelet de cod pentru Faza 1 (MVP) a aplicației web VERIDIC, conform
 [specificatie-platforma-anti-dezinformare.md](./specificatie-platforma-anti-dezinformare.md).
 
 Acoperă: analiză text (Pilonii 2 și 4, via Claude API), profiluri de bază pentru surse
@@ -77,7 +77,7 @@ npm run build        # build de producție (Next.js + Prisma Client)
 ## Ce NU e încă pregătit pentru trafic real (de discutat cu echipa înainte de lansare publică)
 
 - Rate limiting distribuit real (vezi mai sus)
-- Autentificare/conturi de utilizator (platforma e complet publică/anonimă momentan)
+- Autentificare/conturi de utilizator (aplicația e complet publică/anonimă momentan)
 - Politică de confidențialitate și termeni de utilizare revizuiți legal
 - Monitorizare/alertare (Grafana + Prometheus sunt în arhitectura propusă, secțiunea 8.2,
   neimplementate în acest schelet)

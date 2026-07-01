@@ -7,12 +7,12 @@ export default function ConfidentialitatePage() {
       <p className="italic text-ink-400">
         Acest text e o schiță pentru echipa de dezvoltare, NU o politică de confidențialitate
         publicabilă. Înainte de lansarea publică, această pagină trebuie revizuită de un jurist
-        și adaptată la fluxul real de date al platformei (secțiunea 11 din specificație —
+        și adaptată la fluxul real de date al aplicației (secțiunea 11 din specificație —
         conformitate GDPR).
       </p>
       <p>
         VERIDIC stochează textul trimis pentru analiză, scorurile rezultate și dovezile
-        generate, pentru a putea afișa rezultatul și a îmbunătăți platforma. Analizele
+        generate, pentru a putea afișa rezultatul și a îmbunătăți aplicația. Analizele
         individuale nu sunt asociate identității utilizatorului fără consimțământ explicit.
       </p>
       <p>

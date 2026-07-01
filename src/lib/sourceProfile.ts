@@ -47,13 +47,13 @@ export async function getSourceCredibility(url: string | null): Promise<SourceLo
       domain,
       entityType: "unknown",
       historicalCredibilityScore: NEUTRAL_SCORE,
-      note: "Sursă necunoscută — fără istoric în platformă. Scor neutru implicit.",
+      note: "Sursă necunoscută — fără istoric în aplicație. Scor neutru implicit.",
     },
   });
 
   return {
     score: NEUTRAL_SCORE,
-    note: "Sursă necunoscută — fără istoric în platformă. Scor neutru implicit.",
+    note: "Sursă necunoscută — fără istoric în aplicație. Scor neutru implicit.",
     isKnown: false,
   };
 }

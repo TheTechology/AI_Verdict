@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Globe2 } from "lucide-react";
 
 const GALERIE = [
-  { src: "/poveste/coding-blocuri.jpg", alt: "Primii pași în programare — logică vizuală, într-un program de educație digitală Grupul Verde" },
+  { src: "/poveste/coding-blocuri.jpg", alt: "Primii pași în programare — logică vizuală, într-un program de educație digitală al Asociației Grupul Verde" },
   { src: "/poveste/echipa-laptop.jpg", alt: "Doi tineri, un laptop, o problemă de rezolvat împreună" },
   { src: "/poveste/laborator-echipa.jpg", alt: "Într-un laborator de calculatoare, ideile devin cod" },
   { src: "/poveste/concentrare-individuala.jpg", alt: "Concentrare totală — momentul în care tehnologia se construiește, nu doar se consumă" },
@@ -49,7 +49,7 @@ export function PovesteSection() {
         className="text-center max-w-2xl mx-auto mb-14"
       >
         <p className="text-xs uppercase tracking-widest text-verde-400 font-medium">
-          Povestea din spatele platformei
+          Povestea din spatele aplicației
         </p>
         <h2 className="font-serif text-3xl sm:text-4xl font-bold mt-2 text-ink-50">
           13 tineri. O misiune <span className="text-gradient">națională</span>.
@@ -72,7 +72,7 @@ export function PovesteSection() {
             o construiesc pentru ceva ce contează?
           </p>
           <p>
-            Răspunsul e platforma pe care o vezi aici. Nu e un proiect izolat de weekend, ci prima
+            Răspunsul e aplicația web pe care o vezi aici. Nu e un proiect izolat de weekend, ci prima
             livrare concretă a programului{" "}
             <a
               href="https://grupulverde.ro/proiecte/ai-cetateni/"
@@ -106,10 +106,10 @@ export function PovesteSection() {
             <div>
               <h3 className="font-semibold text-ink-50 text-sm">Dimensiunea europeană</h3>
               <p className="text-sm text-ink-300 mt-1 leading-relaxed">
-                Platforma se aliniază direct cu <strong>Digital Services Act</strong> — primul cadru
+                Aplicația se aliniază direct cu <strong>Digital Services Act</strong> — primul cadru
                 legal european care tratează dezinformarea sistemică drept risc pentru spațiul public
                 — și cu rețeaua <strong>EDMO</strong> (European Digital Media Observatory). Aceeași
-                logică pe care Grupul Verde o aplică deja programelor sale — construiește local,
+                logică pe care Asociația Grupul Verde o aplică deja programelor sale — construiește local,
                 documentează transparent, fă-l replicabil — e gândită de la început pentru finanțare
                 și parteneriate europene: Erasmus+, Digital Europe Programme, Horizon Europe.
               </p>
@@ -169,7 +169,7 @@ export function PovesteSection() {
         ))}
       </div>
       <p className="text-center text-xs text-ink-500 italic -mt-12 mb-16">
-        Imagini din activitățile și rețeaua Grupul Verde — ilustrative pentru spiritul programului.
+        Imagini din activitățile și rețeaua Asociației Grupul Verde — ilustrative pentru spiritul programului.
       </p>
 
       <motion.div

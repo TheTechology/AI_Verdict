@@ -18,7 +18,7 @@ const sans = Inter({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const title = "VERIDIC — Instrumentul unei generații care nu doar crede, ci verifică";
 const description =
-  "13 tineri, o misiune națională: platforma care arată mecanismele dezinformării, nu doar un verdict. Un proiect al Asociației Grupul Verde, Adjud.";
+  "13 tineri, o misiune națională: aplicația web care arată mecanismele dezinformării, nu doar un verdict. Un proiect al Asociației Grupul Verde, Adjud.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

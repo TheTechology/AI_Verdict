@@ -118,7 +118,7 @@ export function ResearchSection() {
       </div>
 
       <p className="text-center text-xs text-ink-500 italic mt-10 px-4">
-        Organizații de referință pentru metodologia platformei — nu implică o afiliere sau
+        Organizații de referință pentru metodologia aplicației — nu implică o afiliere sau
         parteneriat oficial.
       </p>
     </section>

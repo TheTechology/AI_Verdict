@@ -13,9 +13,9 @@ interface Stat {
 }
 
 const IMPACT: Stat[] = [
-  { icon: Users2, value: 13, label: "tineri autori ai platformei" },
+  { icon: Users2, value: 13, label: "tineri autori ai aplicației" },
   { icon: Network, value: 9, label: "programe naționale 2026–2035" },
-  { icon: Users2, value: 3900, suffix: "+", label: "beneficiari în rețeaua Grupul Verde" },
+  { icon: Users2, value: 3900, suffix: "+", label: "beneficiari în rețeaua Asociației Grupul Verde" },
   { icon: CalendarRange, value: 10, label: "ani de angajament asumat" },
 ];
 
@@ -69,12 +69,12 @@ export function StatsSection() {
           Cifre, nu <span className="text-gradient">promisiuni</span>.
         </h2>
         <p className="text-sm text-ink-400 mt-3">
-          Impactul rețelei care a construit platforma și performanța pe care o livrează.
+          Impactul rețelei care a construit aplicația și performanța pe care o livrează.
         </p>
       </motion.div>
 
-      <StatRow title="Impact · rețeaua Grupul Verde" stats={IMPACT} delayOffset={0.1} />
-      <StatRow title="Performanță · platforma VERIDIC" stats={PERFORMANTA} delayOffset={0.2} />
+      <StatRow title="Impact · rețeaua Asociației Grupul Verde" stats={IMPACT} delayOffset={0.1} />
+      <StatRow title="Performanță · aplicația VERIDIC" stats={PERFORMANTA} delayOffset={0.2} />
     </section>
   );
 }
